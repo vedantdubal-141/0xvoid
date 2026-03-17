@@ -1,0 +1,58 @@
+{
+  "name": "vedant-dubal-portfolio",
+  "homepage": "https://vedantdubal.com",
+  "version": "1.0.0",
+  "description": "Vedant Dubal's Portfolio - Systems & DevOps Enthusiast featuring a terminal-style interface, project labs, and system experiments",
+  "keywords": [
+    "portfolio",
+    "react",
+    "systems-engineer",
+    "devops",
+    "terminal",
+    "vedant-dubal",
+    "linux",
+    "arch-linux"
+  ],
+  "author": "Vedant Dubal <vedant.dubal.cg@gmail.com>",
+  "license": "GNU LESSER GENERAL PUBLIC LICENSE",
+  "private": true,
+  "dependencies": {
+    "cra-template": "1.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.11.0",
+    "react-scripts": "^5.0.1"
+  },
+  "scripts": {
+    "dev": "npm start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build --cname vedantdubal.com",
+    "build": "npm run update-metadata && react-scripts build && npm run update-metadata",
+    "update-metadata": "node scripts/update-metadata.js",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "gh-pages": "^6.3.0"
+  }
+}

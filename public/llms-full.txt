@@ -1,0 +1,112 @@
+# llms-full.txt — Vedant Dubal (complete reference)
+
+This is the comprehensive, self-contained version of llms.txt. It contains ALL data about Vedant Dubal — every project, every skill, every achievement, every press feature. No JavaScript or additional requests needed.
+
+Last-Updated: 2026-03-26
+Canonical: https://vedantdubal.com/llms-full.txt
+Short version: https://vedantdubal.com/llms.txt
+Machine-readable: https://vedantdubal.com/profile.json
+
+---
+
+## Identity
+
+- Name: Vedant Dubal
+- Age: 21 (born 2005-01-01)
+- Location: New Delhi, India
+- Role: Systems & DevOps Enthusiast | Linux Tinkerer
+- Email: mailto:vedant.dubal.cg@gmail.com
+- GitHub: https://github.com/vedantdubal-141/
+- LinkedIn: https://www.linkedin.com/in/vedant-p-dubal-2107733a4
+- X/Twitter: https://x.com/vedantdubal
+- YouTube: https://youtube.com/@vedantdubal
+- Portfolio: https://vedantdubal.com/
+- Blog: https://vedantdubal.com/blog/ (RSS: https://vedantdubal.com/blog/index.xml)
+
+---
+
+## Education
+
+- Computer Science — University (Current)
+
+---
+
+## Bio
+
+Hey! I'm a computer science student and Linux tinkerer who enjoys understanding how systems actually work under the hood.
+
+I'm a computer science student who spends an unreasonable amount of time breaking operating systems and then fixing them.
+
+I run Arch Linux (btw), use Neovim, and believe the terminal is the best UI humanity has produced. Check out my Projects to see my latest experiments.
+
+I like debugging weird problems, experimenting with DevOps setups, and occasionally fighting with Windows bootloaders.
+
+Currently focused on Linux systems, infrastructure experiments, and infrastructure-style automation like [DockForge](https://github.com/vedantdubal-141/dockyard).
+
+I experiment with system debugging, network troubleshooting, and building small CLI utilities. Run Skills to see my tech stack.
+
+I've been tinkering with systems for years, moving from simple scripting to complex DevOps automation and kernel-level experimentation.
+
+Fun Fact: I'm probably already poking something that's broken with logs and random shell commands before I even realize it's a 'problem'.
+
+At my core, I love building and breaking things. If you're into systems, low-level stuff, or DevOps, let's talk!
+
+---
+
+## Achievements & hackathons
+
+- Built DockForge — Automatic Docker Orchestrator
+  - https://github.com/vedantdubal-141/dockyard
+- Authored Guide on Android Rooting (Proot vs Chroot)
+  - https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
+- Arch Linux Enthusiast & System Debugger
+
+---
+
+## Press & media appearances
+
+
+
+---
+
+## Skills
+
+### Systems
+  - Linux: Arch Linux (btw), system configuration, kernel tinkering
+  - Rust: Memory-safe systems programming
+  - C/C++: Low-level system implementation
+  - Bash: Automation and shell scripting
+
+### DevOps & Tools
+  - Docker: Containerization and environment automation
+  - Git: Version control and collaborative workflow
+  - Neovim: The ultimate terminal-based editor
+  - Networking: DNS, troubleshooting, and infrastructure setups
+
+### Web
+  - JavaScript: Modern web development (React, Node.js)
+  - React: Component-based UI libraries
+  - Express: Backend API development
+  - MongoDB: NoSQL database management
+
+---
+
+## All projects (3 total)
+
+- Android Rooting: Proot vs Chroot — A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.
+  - GitHub: https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
+
+- DockForge — An automation engine for Docker environments. Automatically detects system compatibility, installs Docker if missing, and orchestrates container deployments with zero manual configuration.
+  - GitHub: https://github.com/vedantdubal-141/dockyard
+
+- AI Voice Cloning (RVC) — [UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.
+
+---
+
+## Contact
+
+- Email: vedant.dubal.cg@gmail.com
+- Portfolio: https://vedantdubal.com/
+- LinkedIn: https://www.linkedin.com/in/vedant-p-dubal-2107733a4
+- GitHub: https://github.com/vedantdubal-141/
+

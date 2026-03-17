@@ -1,0 +1,24 @@
+/* Self-hosted Share Tech Mono - works in Brave and all browsers */
+@font-face {
+  font-family: 'Share Tech Mono';
+  src: url('./fonts/ShareTechMono.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background-color: #000000;
+  --background-image: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* Priority: 1) Terminus (local), 2) Share Tech Mono (self-hosted), 3) Courier New (universal fallback) */
+  font-family: 'Terminus', 'Share Tech Mono', 'Courier New', Courier, monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #ffffff;
+  background: var(--background-image), var(--background-color);
+}
