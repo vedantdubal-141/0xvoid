@@ -1,0 +1,30 @@
+export const verticalLogo = `
+██╗   ██╗
+██║   ██║
+██║   ██║
+╚██╗ ██╔╝
+ ╚████╔╝ 
+  ╚═══╝  
+
+██████╗  
+██╔═══██╗
+██║   ██║
+██║   ██║
+╚██████╔╝
+ ╚═════╝ 
+
+██╗      
+██║      
+██║      
+██║      
+██║      
+╚═╝      
+
+██████╗  
+██╔══██╗ 
+██║  ██║ 
+██║  ██║ 
+██████╔╝ 
+╚═════╝  
+`;// update: fix: trailing whitespace alignment in ASCII art modules
+// update: fix: trailing whitespace alignment in ASCII art modules
