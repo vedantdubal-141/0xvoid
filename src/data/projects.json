@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Android Rooting: Proot vs Chroot",
+    "description": "A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.",
+    "website": null,
+    "github": "https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md",
+    "previewImg": "/images/root.png",
+    "showIframe": false,
+    "extra": []
+  },
+  {
+    "title": "DockForge",
+    "description": "An automation engine for Docker environments. Automatically detects system compatibility, installs Docker if missing, and orchestrates container deployments with zero manual configuration.",
+    "website": null,
+    "github": "https://github.com/vedantdubal-141/dockyard",
+    "previewImg": "/images/dockforge.gif",
+    "showIframe": false,
+    "extra": []
+  },
+  {
+    "title": "AI Voice Cloning (RVC)",
+    "description": "[UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.",
+    "website": null,
+    "github": null,
+    "previewImg": "/images/rvc.gif",
+    "showIframe": false,
+    "extra": []
+  }
+]
