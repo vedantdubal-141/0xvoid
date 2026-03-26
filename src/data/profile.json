@@ -1,0 +1,65 @@
+{
+  "name": "Vedant Dubal",
+  "title": "Systems & DevOps Enthusiast | Linux Tinkerer",
+  "email": "vedant.dubal.cg@gmail.com",
+  "location": "New Delhi, India",
+  "birthDate": "2005-01-01",
+  "socials": {
+    "github": "https://github.com/vedantdubal-141/",
+    "linkedin": "https://www.linkedin.com/in/vedant-p-dubal-2107733a4",
+    "twitter": "https://x.com/vedantdubal",
+    "youtube": "https://youtube.com/@vedantdubal"
+  },
+  "bio": {
+    "intro": "Hey! I'm a computer science student and Linux tinkerer who enjoys understanding how systems actually work under the hood.",
+    "education": "I'm a computer science student who spends an unreasonable amount of time breaking operating systems and then fixing them.",
+    "projects_highlight": "I run Arch Linux (btw), use Neovim, and believe the terminal is the best UI humanity has produced. Check out my <span class=\"command-link\" data-command=\"projects\" style=\"color: #5abb9a; cursor: pointer; text-decoration: underline;\">Projects</span> to see my latest experiments.",
+    "blog_highlight": "I like debugging weird problems, experimenting with DevOps setups, and occasionally fighting with Windows bootloaders.",
+    "current_work": "Currently focused on Linux systems, infrastructure experiments, and infrastructure-style automation like <a href=\"https://github.com/vedantdubal-141/dockyard\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"color: #5abb9a; text-decoration: underline;\">DockForge</a>.",
+    "skills_highlight": "I experiment with system debugging, network troubleshooting, and building small CLI utilities. Run <span class=\"command-link\" data-command=\"skills\" style=\"color: #5abb9a; cursor: pointer; text-decoration: underline;\">Skills</span> to see my tech stack.",
+    "history": "I've been tinkering with systems for years, moving from simple scripting to complex DevOps automation and kernel-level experimentation.",
+    "fun_fact": "Fun Fact: I'm probably already poking something that's broken with logs and random shell commands before I even realize it's a 'problem'.",
+    "outro": "At my core, I love building and breaking things. If you're into systems, low-level stuff, or DevOps, let's talk!"
+  },
+  "skills": {
+    "Systems": [
+      { "name": "Linux", "desc": "Arch Linux (btw), system configuration, kernel tinkering" },
+      { "name": "Rust", "desc": "Memory-safe systems programming" },
+      { "name": "C/C++", "desc": "Low-level system implementation" },
+      { "name": "Bash", "desc": "Automation and shell scripting" }
+    ],
+    "DevOps & Tools": [
+      { "name": "Docker", "desc": "Containerization and environment automation" },
+      { "name": "Git", "desc": "Version control and collaborative workflow" },
+      { "name": "Neovim", "desc": "The ultimate terminal-based editor" },
+      { "name": "Networking", "desc": "DNS, troubleshooting, and infrastructure setups" }
+    ],
+    "Web": [
+      { "name": "JavaScript", "desc": "Modern web development (React, Node.js)" },
+      { "name": "React", "desc": "Component-based UI libraries" },
+      { "name": "Express", "desc": "Backend API development" },
+      { "name": "MongoDB", "desc": "NoSQL database management" }
+    ]
+  },
+  "education": [
+    {
+      "degree": "Computer Science",
+      "institution": "University",
+      "status": "Current"
+    }
+  ],
+  "accomplishments": [
+    {
+      "title": "Built DockForge — Automatic Docker Orchestrator",
+      "url": "https://github.com/vedantdubal-141/dockyard"
+    },
+    {
+      "title": "Authored Guide on Android Rooting (Proot vs Chroot)",
+      "url": "https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md"
+    },
+    {
+      "title": "Arch Linux Enthusiast & System Debugger"
+    }
+  ],
+  "media_appearances": []
+}
