@@ -71,7 +71,7 @@ const Terminal = () => {
   const { changeBackgroundColor, backgrounds } = useTheme();
 
   useEffect(() => {
-    fetch('/insult.txt')
+    fetch(`${process.env.PUBLIC_URL}/insult.txt`)
       .then(res => res.text())
       .then(text => {
         const lines = text.split('\n').map(line => line.trim().replace(/^"|"$/g, '')).filter(Boolean);

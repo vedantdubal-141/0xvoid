@@ -46,7 +46,7 @@ const badgeLinks = (project) => {
       .map((item) => {
         if (!item) return null;
         if (typeof item === 'string') {
-          return { href: item, alt: 'Post', src: '/globe.svg' };
+          return { href: item, alt: 'Post', src: `${process.env.PUBLIC_URL}/globe.svg` };
         }
         if (typeof item === 'object') {
           const href = item.href || item.url;
@@ -54,7 +54,7 @@ const badgeLinks = (project) => {
           return {
             href,
             alt: item.alt || 'Post',
-            src: item.src || '/globe.svg',
+            src: item.src || `${process.env.PUBLIC_URL}/globe.svg`,
           };
         }
         return null;

@@ -13,8 +13,8 @@ function App() {
       <div className="App">
         {!booted && <BootScreen onComplete={() => setBooted(true)} />}
         <Routes>
-          <Route path="/" element={<Terminal />} />
           <Route path="/tos" element={<ToS />} />
+          <Route path="*" element={<Terminal />} />
         </Routes>
       </div>
     </Router>
