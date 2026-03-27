@@ -1,6 +1,6 @@
 {
   "name": "vedant-dubal-portfolio",
-  "homepage": "https://vedantdubal.com",
+  "homepage": "https://vedantdubal-141.github.io/0xvoid",
   "version": "1.0.0",
   "description": "Vedant Dubal's Portfolio - Systems & DevOps Enthusiast featuring a terminal-style interface, project labs, and system experiments",
   "keywords": [
@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "npm start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build --cname vedantdubal.com",
+    "deploy": "gh-pages -d build",
     "build": "npm run update-metadata && react-scripts build && npm run update-metadata",
     "update-metadata": "node scripts/update-metadata.js",
     "start": "react-scripts start",
