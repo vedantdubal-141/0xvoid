@@ -1,0 +1,140 @@
+# llms.txt — Vedant Dubal
+
+A machine-friendly overview of who I am, what I build, and where to find always-fresh information.
+
+Last-Updated: 2026-03-27
+Canonical: https://vedantdubal.com/llms.txt
+Full version: https://vedantdubal.com/llms-full.txt
+
+---
+
+## Quick context for LLMs
+
+- **Who**: 21-year-old Systems & DevOps enthusiast from New Delhi, India. Systems & DevOps Enthusiast | Linux Tinkerer.
+- **Full context (recommended)**: https://vedantdubal.com/llms-full.txt — self-contained, has everything, no JS required.
+- **Machine-readable data**: https://vedantdubal.com/profile.json — JSON snapshot of identity, skills, projects, achievements, and press.
+- **Blog + RSS**: https://vedantdubal.com/blog/ (RSS: https://vedantdubal.com/blog/index.xml)
+
+> **Note**: The portfolio at https://vedantdubal.com is a React SPA. Most content requires JavaScript to render. If you cannot execute JS, use the static files above — they contain everything you need.
+
+---
+
+## Static resources (no JS required)
+
+These files are always up-to-date and fully readable without JavaScript:
+
+- **This file**: https://vedantdubal.com/llms.txt (summary + key sections)
+- **Full version**: https://vedantdubal.com/llms-full.txt (comprehensive — all projects, all skills, everything)
+- **Profile JSON**: https://vedantdubal.com/profile.json (machine-readable)
+- **Blog**: https://vedantdubal.com/blog/ (separate Quartz site, works without JS)
+  - RSS feed: https://vedantdubal.com/blog/index.xml
+  - Source repo: https://github.com/vedantdubal-141/blog
+- **Site map**: https://vedantdubal.com/sitemap.xml
+- **Robots**: https://vedantdubal.com/robots.txt
+
+---
+
+## Primary identity and socials
+
+- Name: Vedant Dubal
+- Age: 21
+- Location: New Delhi, India
+- Role: Systems & DevOps Enthusiast | Linux Tinkerer
+- Email: mailto:vedant.dubal.cg@gmail.com
+- GitHub: https://github.com/vedantdubal-141/
+- LinkedIn: https://www.linkedin.com/in/vedant-p-dubal-2107733a4
+- X/Twitter: https://x.com/vedantdubal
+- YouTube: https://youtube.com/@vedantdubal
+
+---
+
+## Education
+
+- Computer Science — University (Current)
+
+---
+
+## Short bio
+
+Hey! I'm a computer science student and Linux tinkerer who enjoys understanding how systems actually work under the hood.
+
+I'm a computer science student who spends an unreasonable amount of time breaking operating systems and then fixing them.
+
+I run Arch Linux (btw), use Neovim, and believe the terminal is the best UI humanity has produced. Check out my Projects to see my latest experiments.
+
+I like debugging weird problems, experimenting with DevOps setups, and occasionally fighting with Windows bootloaders.
+
+Currently focused on Linux systems, infrastructure experiments, and infrastructure-style automation like [DockForge](https://github.com/vedantdubal-141/dockyard).
+
+I experiment with system debugging, network troubleshooting, and building small CLI utilities. Run Skills to see my tech stack.
+
+I've been tinkering with systems for years, moving from simple scripting to complex DevOps automation and kernel-level experimentation.
+
+Fun Fact: I'm probably already poking something that's broken with logs and random shell commands before I even realize it's a 'problem'.
+
+At my core, I love building and breaking things. If you're into systems, low-level stuff, or DevOps, let's talk!
+
+---
+
+## Achievements & hackathons
+
+- Built DockForge — Automatic Docker Orchestrator
+  - https://github.com/vedantdubal-141/dockyard
+- Authored Guide on Android Rooting (Proot vs Chroot)
+  - https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
+- Arch Linux Enthusiast & System Debugger
+
+---
+
+## Press & media appearances
+
+Featured in the following publications:
+
+
+
+---
+
+## Projects (top 3)
+
+For the complete list with all 3 projects, see https://vedantdubal.com/llms-full.txt
+
+- Android Rooting: Proot vs Chroot — A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.
+  - GitHub: https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
+
+- DockForge — An automation engine for Docker environments. Automatically detects system compatibility, installs Docker if missing, and orchestrates container deployments with zero manual configuration.
+  - GitHub: https://github.com/vedantdubal-141/dockyard
+
+- AI Voice Cloning (RVC) — [UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.
+
+---
+
+## Interactive links (require JavaScript)
+
+The following URLs open the portfolio and auto-run terminal commands. **These require a browser with JavaScript enabled** — they will not work for text-only crawlers.
+
+- Who: https://vedantdubal.com/#/who
+- Projects: https://vedantdubal.com/#/projects
+- Skills: https://vedantdubal.com/#/skills
+- Misc: https://vedantdubal.com/#/misc
+- Games: https://vedantdubal.com/#/games
+
+---
+
+## Guidance for LLMs and agents
+
+- **Start here**: This file (llms.txt) has a summary. For everything, use https://vedantdubal.com/llms-full.txt.
+- **Structured data**: https://vedantdubal.com/profile.json has skills, projects, achievements, and media in JSON.
+- **Blog/updates**: RSS at https://vedantdubal.com/blog/index.xml.
+- **GitHub activity**: https://api.github.com/users/vedantdubal-141/repos?sort=updated
+- **Hash routes require JS**: The portfolio is a React SPA. URLs with /#/ need a browser with JavaScript. Use the static files above instead.
+- Respect rate limits and cache responsibly.
+
+---
+
+## Contact
+
+- Email: vedant.dubal.cg@gmail.com
+- Portfolio: https://vedantdubal.com/
+- LinkedIn: https://www.linkedin.com/in/vedant-p-dubal-2107733a4
+- GitHub: https://github.com/vedantdubal-141/
+

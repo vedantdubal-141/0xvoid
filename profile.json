@@ -1,0 +1,136 @@
+{
+  "name": "Vedant Dubal",
+  "title": "Systems & DevOps Enthusiast | Linux Tinkerer",
+  "age": 21,
+  "location": "New Delhi, India",
+  "email": "vedant.dubal.cg@gmail.com",
+  "website": "https://vedantdubal.com",
+  "github": "https://github.com/vedantdubal-141/",
+  "linkedin": "https://www.linkedin.com/in/vedant-p-dubal-2107733a4",
+  "blog": "https://vedantdubal.com/blog/",
+  "youtube": "https://youtube.com/@vedantdubal",
+  "current_role": {
+    "position": "I've been tinkering with systems for years, moving from simple scripting to complex DevOps automation and kernel-level experimentation.",
+    "education": "I'm a computer science student who spends an unreasonable amount of time breaking operating systems and then fixing them."
+  },
+  "education": [
+    {
+      "degree": "Computer Science",
+      "institution": "University",
+      "status": "Current"
+    }
+  ],
+  "skills": {
+    "Systems": [
+      {
+        "name": "Linux",
+        "desc": "Arch Linux (btw), system configuration, kernel tinkering"
+      },
+      {
+        "name": "Rust",
+        "desc": "Memory-safe systems programming"
+      },
+      {
+        "name": "C/C++",
+        "desc": "Low-level system implementation"
+      },
+      {
+        "name": "Bash",
+        "desc": "Automation and shell scripting"
+      }
+    ],
+    "DevOps & Tools": [
+      {
+        "name": "Docker",
+        "desc": "Containerization and environment automation"
+      },
+      {
+        "name": "Git",
+        "desc": "Version control and collaborative workflow"
+      },
+      {
+        "name": "Neovim",
+        "desc": "The ultimate terminal-based editor"
+      },
+      {
+        "name": "Networking",
+        "desc": "DNS, troubleshooting, and infrastructure setups"
+      }
+    ],
+    "Web": [
+      {
+        "name": "JavaScript",
+        "desc": "Modern web development (React, Node.js)"
+      },
+      {
+        "name": "React",
+        "desc": "Component-based UI libraries"
+      },
+      {
+        "name": "Express",
+        "desc": "Backend API development"
+      },
+      {
+        "name": "MongoDB",
+        "desc": "NoSQL database management"
+      }
+    ]
+  },
+  "featured_projects": [
+    {
+      "name": "Android Rooting: Proot vs Chroot",
+      "status": "Active",
+      "description": "A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.",
+      "github": "https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md",
+      "technologies": [
+        "Linux Systems"
+      ]
+    },
+    {
+      "name": "DockForge",
+      "status": "Active",
+      "description": "An automation engine for Docker environments. Automatically detects system compatibility, installs Docker if missing, and orchestrates container deployments with zero manual configuration.",
+      "github": "https://github.com/vedantdubal-141/dockyard",
+      "technologies": [
+        "DevOps",
+        "AI/ML"
+      ]
+    },
+    {
+      "name": "AI Voice Cloning (RVC)",
+      "status": "Active",
+      "description": "[UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.",
+      "technologies": [
+        "AI/ML"
+      ]
+    }
+  ],
+  "achievements": [
+    "Built DockForge — Automatic Docker Orchestrator",
+    "Authored Guide on Android Rooting (Proot vs Chroot)",
+    "Arch Linux Enthusiast & System Debugger"
+  ],
+  "media_appearances": [],
+  "interests": [
+    "Linux internals and system administration",
+    "DevOps automation and infrastructure as code",
+    "Network security and troubleshooting",
+    "Open source development",
+    "Building efficient CLI tools"
+  ],
+  "portfolio_features": {
+    "type": "Interactive Terminal",
+    "technologies": [
+      "React",
+      "JavaScript",
+      "CSS"
+    ],
+    "features": [
+      "Interactive terminal interface",
+      "System experiments showcase",
+      "DevOps labs automation",
+      "Mobile responsive design"
+    ]
+  },
+  "last_updated": "2026-03-27"
+}
