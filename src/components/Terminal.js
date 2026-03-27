@@ -265,7 +265,7 @@ const Terminal = () => {
         }
         break;
       case 'tos':
-        window.open('/tos', '_blank');
+        window.open('#/tos', '_blank');
         addToOutput({ type: 'output', content: 'Opening Terms of Service...' });
         break;
       case 'pwd':
