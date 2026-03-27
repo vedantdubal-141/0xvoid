@@ -111,7 +111,7 @@ const MobileProjectsCarousel = () => {
         <div style={{ width: '100%', marginBottom: 16, borderRadius: 12, overflow: 'hidden', background: '#181818', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {project.previewImg && (
             <img
-              src={project.previewImg}
+              src={`${process.env.PUBLIC_URL}${project.previewImg}`}
               alt={project.title + ' preview'}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 12 }}
             />
@@ -225,7 +225,7 @@ const ProjectsMasonry = () => {
                       className="project-iframe-container"
                     >
                       <img
-                        src={project.previewImg}
+                        src={`${process.env.PUBLIC_URL}${project.previewImg}`}
                         alt={project.title + ' preview'}
                         style={{
                           width: '100%',
