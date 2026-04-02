@@ -3,7 +3,10 @@
 
 gemini/
 /gemini
-
+/home/vista/yrself/my-portfolio/src/assets/Portfolio-button.png
+src/assets/Portfolio-button.png
+/home/vista/yrself/my-portfolio/src/assets/Portfolio-gif.gif
+src/assets/Portfolio-gif.gif
 # dependencies
 /node_modules
 /.pnp
