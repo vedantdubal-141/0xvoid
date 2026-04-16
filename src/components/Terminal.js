@@ -89,7 +89,7 @@ const Terminal = () => {
     'time', 'date', 'background', 'theme', 'themes', 'bg',
     'color', 'calculator', 'hackermode', 'qr-generator',
     'password-generator', 'pwd', 'sudo',
-    'about', 'about me', 'fastfetch', 'ff'
+    'about', 'about me', 'fastfetch', 'ff', 'resume', 'cv'
   ], []);
 
   // Memoized banners to avoid recreation on every render
@@ -159,6 +159,11 @@ const Terminal = () => {
       case 'p':
       case 'pr':
         addToOutput({ type: 'component', content: <ProjectsMasonry /> });
+        break;
+      case 'resume':
+      case 'cv':
+        window.open(process.env.PUBLIC_URL + '/resume.html', '_blank');
+        addToOutput({ type: 'output', content: 'Opening Resume...' });
         break;
       case 'github':
       case 'gh':
