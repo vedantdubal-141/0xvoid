@@ -4,6 +4,7 @@ const helpContent = `
   <p style="margin: 10px 0; line-height: 1.9;">
     <span class="command-link" data-command="who" style="color: #5abb9a;">[who] or [w]</span> — who am I?<br>
     <span class="command-link" data-command="projects" style="color: #5abb9a;">[projects] or [p]</span> — see my work & labs<br>
+    <span class="command-link" data-command="resume" style="color: #5abb9a;">[resume] or [cv]</span> — view my resume<br>
     <span class="command-link" data-command="skills" style="color: #5abb9a;">[skills] or [s]</span> — view my technical skills<br>
     <span class="command-link" data-command="about" style="color: #5abb9a;">[about] or [ff]</span> — fastfetch-style profile<br>
     <span class="command-link" data-command="neofetch" style="color: #5abb9a;">[neofetch] or [nf]</span> — your detected system info<br>
