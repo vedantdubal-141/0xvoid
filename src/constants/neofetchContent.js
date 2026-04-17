@@ -118,7 +118,7 @@ export function showNeofetch(addOutput) {
   ].join('\n');
 
   const neofetchOutput = `
-    <div class="neofetch-container" style="display:flex;gap:40px;align-items:center;padding:16px 0;width:100%;overflow-x:auto;">
+    <div class="neofetch-container flex-responsive" style="padding:16px 0;width:100%;overflow-x:auto;">
       <pre style="margin:0; font-size: 8px; line-height: 1.0; color: #5abb9a; opacity: 0.7; flex-shrink: 0; font-family: monospace;">${customAscii}</pre>
       <div style="flex-shrink: 0;">
         <pre style="margin:0;line-height:1.6;color:#5abb9a;font-family:'Terminus','Share Tech Mono','Courier New',monospace;font-size:0.85rem;">vedant@portfolio

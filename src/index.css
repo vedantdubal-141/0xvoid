@@ -1,4 +1,13 @@
-/* Self-hosted Share Tech Mono - works in Brave and all browsers */
+/* Self-hosted Terminus - bitmap .otb system font is unsupported in Chromium browsers */
+@font-face {
+  font-family: 'Terminus';
+  src: url('./fonts/Terminus.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Self-hosted Share Tech Mono - fallback for all browsers */
 @font-face {
   font-family: 'Share Tech Mono';
   src: url('./fonts/ShareTechMono.woff2') format('woff2');
@@ -15,8 +24,8 @@
 body {
   margin: 0;
   padding: 0;
-  /* Priority: 1) Terminus (local), 2) Share Tech Mono (self-hosted), 3) Courier New (universal fallback) */
-  font-family: 'Terminus', 'Share Tech Mono', 'Courier New', Courier, monospace;
+  /* Priority: 1) Terminus (self-hosted), 2) Share Tech Mono (self-hosted), 3) system fallbacks */
+  font-family: 'Terminus', 'Share Tech Mono', 'Courier New', 'Lucida Console', Courier, monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;

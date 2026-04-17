@@ -40,7 +40,7 @@ export function showAbout(addOutput) {
   const html = `
     <div style="display:flex; flex-direction: column; gap: 10px; padding: 20px 0;">
       <div style="color: #888; font-family: monospace; font-size: 0.95rem;">guest@void:~$ fastfetch vedant</div>
-      <div style="display:flex;gap:40px;align-items:flex-start;flex-wrap:nowrap;width:100%;overflow-x:auto;">
+      <div class="flex-responsive" style="overflow-x:auto; width: 100%;">
         <pre style="
           margin:0;
           font-size:6.5px;
@@ -52,7 +52,7 @@ export function showAbout(addOutput) {
           user-select:none;
           white-space: pre !important;
         ">${asciiArt}</pre>
-        <div style="display:flex; gap: 20px; flex-shrink:0;">
+        <div style="display:flex; flex-wrap: wrap; gap: 20px; flex-shrink:0;">
           <pre style="
             margin:0;
             font-size:0.95rem;

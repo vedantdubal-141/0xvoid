@@ -600,12 +600,12 @@ const Terminal = () => {
         </div>
       ))}
 
-      <div className="command-input">
-        <span className="prompt">
+      <div className="command-input" style={{ flexWrap: 'wrap' }}>
+        <span className="prompt" style={{ flexShrink: 0 }}>
           <span className="ownerTerminal"><b>vedant@profile</b></span>
           <b>:~$</b>&nbsp;
         </span>
-        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', width: '70%' }}>
+        <div style={{ position: 'relative', display: 'flex', alignItems: 'center', flex: 1, minWidth: '200px' }}>
           <input
             ref={inputRef}
             type={isPasswordPrompt ? "password" : "text"}
