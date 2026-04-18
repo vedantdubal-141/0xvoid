@@ -2,7 +2,7 @@
 
 This is the comprehensive, self-contained version of llms.txt. It contains ALL data about Vedant Dubal — every project, every skill, every achievement, every press feature. No JavaScript or additional requests needed.
 
-Last-Updated: 2026-03-27
+Last-Updated: 2026-04-18
 Canonical: https://vedantdubal.com/llms-full.txt
 Short version: https://vedantdubal.com/llms.txt
 Machine-readable: https://vedantdubal.com/profile.json

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CV_Vedant_Dubal_Terminal_Full</title>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: 'Fira Code', 'Courier Prime', monospace;
+            line-height: 1.2;
+            padding: 30px;
+            font-size: 12px;
+        }
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            border: 1px solid #000;
+            padding: 25px;
+        }
+        header {
+            border-bottom: 2px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        h1 { font-size: 24px; text-transform: uppercase; }
+        .sub { font-weight: bold; margin-bottom: 10px; display: block; }
+        .contact { display: grid; grid-template-columns: repeat(2, 1fr); gap: 5px; font-size: 11px; }
+
+        .main-grid { display: grid; grid-template-columns: 220px 1fr; gap: 25px; }
+        section { margin-bottom: 20px; }
+        h2 {
+            background: #000;
+            color: #fff;
+            padding: 2px 8px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+        .sidebar { border-right: 1px dashed #000; padding-right: 15px; }
+
+        .proj { margin-bottom: 15px; }
+        .proj-head { font-weight: bold; text-decoration: underline; font-size: 13px; }
+        .tags { font-size: 10px; font-weight: bold; margin-bottom: 4px; display: block; }
+
+        ul { list-style: none; }
+        li { padding-left: 12px; position: relative; margin-bottom: 3px; }
+        li::before { content: ">"; position: absolute; left: 0; font-weight: bold; }
+
+        .edu-item, .skill-group { margin-bottom: 12px; }
+        footer {
+            margin-top: 20px;
+            border-top: 1px solid #000;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <header>
+        <h1>VEDANT P. DUBAL</h1>
+        <span class="sub">DevOps Engineer · System Administrator · SRE</span>
+        <div class="contact">
+            <div>✉ vedant.dubal.cg@gmail.com</div>
+            <div>⌂ Ahmedabad, Gujarat</div>
+            <div>⌂ github.com/vedantdubal-141</div>
+            <div>in linkedin.com/in/vedant-p-dubal</div>
+        </div>
+    </header>
+
+    <div class="main-grid">
+        <div class="sidebar">
+            <section>
+                <h2>CORE_SKILLS</h2>
+                <ul>
+                    <li>Linux (Arch, Ubuntu, Debian) </li>
+                    <li>Docker & Docker Compose </li>
+                    <li>Kubernetes (minikube/k3s) </li>
+                    <li>GitHub Actions / Jenkins </li>
+                    <li>Bash Scripting </li>
+                 <!--   <li>Grafana + Prometheus </li>
+                    <li>Nginx / Reverse Proxy </li> --->
+                    <li>DNS / VLANs / SSH </li>
+                    <li>CUDA + PyTorch (ML Infra) </li>
+                    <li>FFmpeg </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>FAMILIAR</h2>
+                <ul>
+                    <li>Node.js / Express.js </li>
+                    <li>React.js (basics) </li>
+                    <li>Ansible (learning) </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>EDUCATION</h2>
+                <div class="edu-item">
+                    <strong>B.Tech</strong><br>
+                    Rai University, Ahmedabad <br>
+                    2024 – 2028
+                </div>
+            </section>
+        </div>
+
+        <div class="main-content">
+            <section>
+                <h2>PROFILE</h2>
+                <p>First-year B.Tech student who manually installed Arch Linux, configured chroot environments on Android, and ran 8-hour GPU training sessions before most classmates wrote their first for-loop.  Focused on DevOps, Linux internals, and infrastructure automation. </p>
+            </section>
+
+            <section>
+                <h2>PROJECTS</h2>
+                <div class="proj">
+                    <span class="proj-head">DockForge</span>
+                    <span class="tags">Docker · Bash · GitHub Actions</span>
+                    <ul>
+                        <li>Built tool that provisions full stacks; auto-discovers apps under /app/ and /dockerfiles/ with zero config changes. </li>
+                        <li>Implemented GitHub Actions CI/CD pipeline validating Dockerfiles in clean cloud environments. </li>
+                        <li>Developed scripts reducing environment setup from hours to seconds. </li>
+                    </ul>
+                </div>
+
+                <div class="proj">
+                    <span class="proj-head">Arch Linux Homelab + Android Chroot</span>
+                    <span class="tags">Linux · Termux · Magisk · Bash</span>
+                    <ul>
+                        <li>Manual Arch install: partitioning, kernel selection (linux-zen), and TUI display manager (Ly). </li>
+                        <li>Configured chroot on rooted Android via Termux, bind-mounting /proc, /sys, /dev for near-native behavior. </li>
+                        <li>Self-hosted Nextcloud and Nginx with SSL, VLANs, and reverse proxy. </li>
+                    </ul>
+                </div>
+
+                <div class="proj">
+                    <span class="proj-head">RVC Voice Model Training (AI/ML Infra)</span>
+                    <span class="tags">PyTorch · CUDA · FFmpeg · Python</span>
+                    <ul>
+                        <li>Resolved Python 3.12 / PEP 668 conflicts and NVIDIA PyPI timeout failures for 500MB+ CUDA packages. </li>
+                        <li>Optimized VRAM by tuning batch size (4→16), achieving 7.7GB/8GB RTX 4070 usage (monitored via nvidia-smi). </li>
+                        <li>Completed 14,000-step training over 8 continuous hours with checkpoint recovery. </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>SYSTEM_ADMIN</h2>
+                <div class="proj">
+                    <span class="proj-head">Windows Boot Failure Recovery</span>
+                    <ul>
+                        <li>Diagnosed failure via live Linux USB + smartctl; used rsync for safe interruptible backup with metadata preservation. </li>
+                        <li>Performed clean UEFI reinstall + diskpart partition letter fix. </li>
+                    </ul>
+                </div>
+                <div class="proj">
+                    <span class="proj-head">Git/SSH Hackathon Debugging</span>
+                    <ul>
+                        <li>Diagnosed GitHub failures on restricted networks; migrated remote URL to SSH using ed25519 keypairs. </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        [ EXECUTION COMPLETE ]
+    </footer>
+</div>
+
+</body>
+</html>
