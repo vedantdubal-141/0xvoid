@@ -91,7 +91,7 @@ At my core, I love building and breaking things. If you're into systems, low-lev
 
 ---
 
-## All projects (3 total)
+## All projects (6 total)
 
 - Android Rooting: Proot vs Chroot — A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.
   - GitHub: https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
@@ -100,6 +100,18 @@ At my core, I love building and breaking things. If you're into systems, low-lev
   - GitHub: https://github.com/vedantdubal-141/dockyard
 
 - AI Voice Cloning (RVC) — [UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.
+
+- Central Hostel React Clone — A complete frontend clone of the Central Hostel website built natively with React. Showcases complex CSS layouts, interactive booking features, and responsive grid systems.
+  - Site: https://vedantdubal-141.github.io/css--react/centralhostel/
+  - GitHub: https://github.com/vedantdubal-141/css--react/tree/main/centralhostel-react
+
+- Loopring React Clone — An aesthetic frontend landing page mimicking Loopring's ecosystem. Features intricate CSS animations, responsive navbar, and Web3 product marketing style segments.
+  - Site: https://vedantdubal-141.github.io/css--react/loopring/
+  - GitHub: https://github.com/vedantdubal-141/css--react/tree/main/loopring-react
+
+- H&M UI Clone — A robust eCommerce storefront replica for H&M using React. Focuses on product gallery manipulation, hover states, filtering UI interfaces, and heavy layout architectures.
+  - Site: https://vedantdubal-141.github.io/css--react/hm/
+  - GitHub: https://github.com/vedantdubal-141/css--react/tree/main/H%26M
 
 ---
 

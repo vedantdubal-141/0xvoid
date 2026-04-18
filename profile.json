@@ -103,6 +103,27 @@
       "technologies": [
         "AI/ML"
       ]
+    },
+    {
+      "name": "Central Hostel React Clone",
+      "status": "Active",
+      "description": "A complete frontend clone of the Central Hostel website built natively with React. Showcases complex CSS layouts, interactive booking features, and responsive grid systems.",
+      "url": "https://vedantdubal-141.github.io/css--react/centralhostel/",
+      "github": "https://github.com/vedantdubal-141/css--react/tree/main/centralhostel-react"
+    },
+    {
+      "name": "Loopring React Clone",
+      "status": "Active",
+      "description": "An aesthetic frontend landing page mimicking Loopring's ecosystem. Features intricate CSS animations, responsive navbar, and Web3 product marketing style segments.",
+      "url": "https://vedantdubal-141.github.io/css--react/loopring/",
+      "github": "https://github.com/vedantdubal-141/css--react/tree/main/loopring-react"
+    },
+    {
+      "name": "H&M UI Clone",
+      "status": "Active",
+      "description": "A robust eCommerce storefront replica for H&M using React. Focuses on product gallery manipulation, hover states, filtering UI interfaces, and heavy layout architectures.",
+      "url": "https://vedantdubal-141.github.io/css--react/hm/",
+      "github": "https://github.com/vedantdubal-141/css--react/tree/main/H%26M"
     }
   ],
   "achievements": [
