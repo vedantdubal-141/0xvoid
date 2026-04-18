@@ -411,7 +411,7 @@ const Terminal = () => {
     const welcomeMessage = `
       <div style="margin-bottom: 20px;">
       <div class="welcome-banner">
-      <pre style="color: #5abb9a; font-size: 1.5rem; line-height: 1.2;">
+      <pre class="boot-logo" style="color: #5abb9a; line-height: 1.2;">
     ${isMobile ? banners.small : banners.large}
       </pre>
       </div>
