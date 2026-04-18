@@ -28,3 +28,6 @@ src/assets/Portfolio-gif.gif
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# personal notes / idea backlog
+IDEAS.md

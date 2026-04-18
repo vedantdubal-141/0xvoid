@@ -1,0 +1,128 @@
+.contact-form-container {
+  background: rgba(30, 30, 30, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  border: 1.5px solid rgba(90, 187, 154, 0.18);
+  padding: 24px;
+  margin: 20px 0;
+  max-width: 600px;
+  color: #ffebcd;
+  font-family: "Terminus", "Share Tech Mono", monospace;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.contact-form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #5abb9a88;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.input-group.flex-col {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.input-group label {
+  color: #888;
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.input-group input,
+.input-group textarea {
+  flex: 1;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #5abb9a66;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: #ffebcd;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #5abb9a;
+  box-shadow: 0 0 8px #5abb9a44;
+}
+
+.contact-submit {
+  align-self: flex-start;
+  margin-top: 10px;
+  background: #111;
+  color: #5abb9a;
+  border: 1.5px solid #5abb9a;
+  border-radius: 6px;
+  padding: 10px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact-submit:hover:not(:disabled) {
+  background: #5abb9a;
+  color: #111;
+  box-shadow: 0 0 12px #5abb9a88;
+}
+
+.contact-submit:disabled {
+  border-color: #555;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.contact-status {
+  padding: 16px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.contact-status.success {
+  background: rgba(90, 187, 154, 0.1);
+  border: 1px solid #5abb9a;
+  color: #5abb9a;
+}
+
+.contact-status.error {
+  background: rgba(255, 85, 85, 0.1);
+  border: 1px solid #ff5555;
+  color: #ff5555;
+}
+
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .input-group label {
+    width: 100%;
+  }
+  .contact-submit {
+    width: 100%;
+  }
+}

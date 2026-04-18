@@ -7,6 +7,7 @@ const helpContent = `
     <span class="command-link" data-command="resume" style="color: #5abb9a;">[resume] or [cv]</span> — view my resume<br>
     <span class="command-link" data-command="skills" style="color: #5abb9a;">[skills] or [s]</span> — view my technical skills<br>
     <span class="command-link" data-command="about" style="color: #5abb9a;">[about] or [ff]</span> — fastfetch-style profile<br>
+    <span class="command-link" data-command="contact" style="color: #5abb9a;">[contact] or [mail]</span> — reach out to me<br>
     <span class="command-link" data-command="neofetch" style="color: #5abb9a;">[neofetch] or [nf]</span> — your detected system info<br>
     <span class="command-link" data-command="pwd" style="color: #5abb9a;">[pwd]</span> — print working directory<br>
     <span class="command-link" data-command="sudo" style="color: #5abb9a;">[sudo]</span> — try your luck<br>

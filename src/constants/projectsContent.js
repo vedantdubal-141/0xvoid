@@ -53,8 +53,8 @@ const badgeLinks = (project) => {
           if (!href) return null;
           return {
             href,
-            alt: item.alt || 'Post',
-            src: item.src || `${process.env.PUBLIC_URL}/globe.svg`,
+             alt: item.alt || 'Post',
+             src: item.src || `${process.env.PUBLIC_URL}/globe.svg`,
           };
         }
         return null;
@@ -81,15 +81,95 @@ const badgeLinks = (project) => {
   ));
 };
 
-const MobileProjectsCarousel = () => {
+const ProjectCardContent = ({ project }) => (
+  <div style={{ position: 'relative', zIndex: 1 }}>
+    {project.previewImg && (
+      <div
+        style={{
+          marginBottom: 16,
+          borderRadius: 12,
+          overflow: 'hidden',
+          border: '1.5px solid rgba(90,187,154,0.18)',
+          boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
+          background: '#181818',
+          height: 225,
+          maxWidth: '100%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        className="project-iframe-container"
+      >
+        <img
+          src={`${process.env.PUBLIC_URL}${project.previewImg}`}
+          alt={project.title + ' preview'}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+          }}
+        />
+      </div>
+    )}
+    {project.website && project.showIframe !== false && !project.previewImg && (
+      <div
+        style={{
+          marginBottom: 16,
+          borderRadius: 12,
+          overflow: 'hidden',
+          border: '1.5px solid rgba(90,187,154,0.18)',
+          boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
+          background: '#181818',
+          height: 225,
+          maxWidth: '100%',
+          display: 'block',
+        }}
+        className="project-iframe-container"
+      >
+        <iframe
+          src={project.website}
+          title={project.title + ' preview'}
+          style={{
+            width: '200%',
+            height: 450,
+            border: 'none',
+            borderRadius: 0,
+            background: '#181818',
+            display: 'block',
+            transform: 'scale(0.5)',
+            transformOrigin: '0 0',
+          }}
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin allow-popups"
+          allowFullScreen={false}
+          className="project-iframe"
+        >
+          Your browser does not support iframes or this site does not allow embedding.
+        </iframe>
+      </div>
+    )}
+    <div style={{ fontWeight: 700, fontSize: '1.25em', marginBottom: 8, color: '#5abb9a' }}>{project.title}</div>
+    <div
+      style={{ fontSize: '1em', marginBottom: 16 }}
+      dangerouslySetInnerHTML={{ __html: formatDescriptionToHtml(project.description) }}
+    />
+    <div className="project-badges" style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap' }}>
+      {badgeLinks(project)}
+    </div>
+  </div>
+);
+
+const MobileProjectsCarousel = ({ category, items }) => {
   const [current, setCurrent] = useState(0);
-  const total = projects.length;
+  const total = items.length;
   const goLeft = () => setCurrent((prev) => (prev === 0 ? total - 1 : prev - 1));
   const goRight = () => setCurrent((prev) => (prev === total - 1 ? 0 : prev + 1));
-  const project = projects[current];
+  const project = items[current];
 
   return (
     <div className="mobile-projects-carousel" style={{ maxWidth: 420, margin: '0 auto', padding: '16px 0' }}>
+      <h2 className="terminal-header" style={{ color: '#ffebcd', fontSize: '1.4em', marginBottom: '16px', borderBottom: '1px solid #5abb9a' }}># {category}</h2>
       <div
         className="mobile-project-card"
         style={{
@@ -131,15 +211,6 @@ const MobileProjectsCarousel = () => {
         </div>
         <div style={{ marginTop: 8, fontSize: '0.92em', color: '#5abb9a', textAlign: 'center' }}>{current + 1} / {total}</div>
       </div>
-      <style>{`
-        @media (max-width: 700px) {
-          .mobile-projects-carousel { display: block; }
-          .project-masonry-card, .projects-grid { display: none !important; }
-        }
-        @media (min-width: 701px) {
-          .mobile-projects-carousel { display: none !important; }
-        }
-      `}</style>
     </div>
   );
 };
@@ -159,162 +230,62 @@ const ProjectsMasonry = () => {
     return () => window.removeEventListener('resize', updateColumns);
   }, []);
 
-  const columnProjects = Array.from({ length: columns }, () => []);
-  projects.forEach((project, i) => {
-    columnProjects[i % columns].push(project);
-  });
+  // Group projects by internal category metadata
+  const groupedProjects = projects.reduce((acc, project) => {
+    const cat = project.category || 'Other Labs';
+    if (!acc[cat]) acc[cat] = [];
+    acc[cat].push(project);
+    return acc;
+  }, {});
 
   return (
-    <>
-      <div
-        className="projects-grid"
-        style={{
-          display: 'flex',
-          gap: '32px',
-          maxWidth: 1300,
-          margin: '0 auto',
-          padding: '40px 0',
-          alignItems: 'start',
-        }}
-      >
-        {columnProjects.map((col, colIndex) => (
-          <div key={colIndex} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '32px', minWidth: 0 }}>
-            {col.map((project, idx) => (
-              <div
-                key={project.title}
-                className="project-masonry-card"
-                style={{
-                  display: 'inline-block',
-                  width: '100%',
-                  background: 'linear-gradient(135deg, rgba(30,30,30,0.95) 60%, rgba(90,187,154,0.10) 100%)',
-                  borderRadius: 18,
-                  boxShadow: '0 8px 32px 0 rgba(31,38,135,0.18)',
-                  padding: '24px 20px',
-                  color: '#ffebcd',
-                  fontFamily: "'Terminus', monospace",
-                  position: 'relative',
-                  border: '1.5px solid rgba(90,187,154,0.13)',
-                  transition: 'transform 0.18s, box-shadow 0.18s',
-                  alignSelf: 'start',
-                }}
-                onMouseOver={e => {
-                  e.currentTarget.style.transform = 'scale(1.025)';
-                  e.currentTarget.style.boxShadow = '0 12px 36px 0 rgba(90,187,154,0.18)';
-                }}
-                onMouseOut={e => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  e.currentTarget.style.boxShadow = '0 8px 32px 0 rgba(31,38,135,0.18)';
-                }}
-              >
-                <div style={{ position: 'relative', zIndex: 1 }}>
-                  {project.previewImg && (
-                    <div
-                      style={{
-                        marginBottom: 16,
-                        borderRadius: 12,
-                        overflow: 'hidden',
-                        border: '1.5px solid rgba(90,187,154,0.18)',
-                        boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
-                        background: '#181818',
-                        height: 225,
-                        maxWidth: '100%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                      className="project-iframe-container"
-                    >
-                      <img
-                        src={`${process.env.PUBLIC_URL}${project.previewImg}`}
-                        alt={project.title + ' preview'}
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          objectFit: 'cover',
-                          display: 'block',
-                        }}
-                      />
-                    </div>
-                  )}
-                  {project.website && project.showIframe !== false && !project.previewImg && (
-                    <div
-                      style={{
-                        marginBottom: 16,
-                        borderRadius: 12,
-                        overflow: 'hidden',
-                        border: '1.5px solid rgba(90,187,154,0.18)',
-                        boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
-                        background: '#181818',
-                        height: 225,
-                        maxWidth: '100%',
-                        display: 'block',
-                      }}
-                      className="project-iframe-container"
-                    >
-                      <iframe
-                        src={project.website}
-                        title={project.title + ' preview'}
-                        style={{
-                          width: '200%',
-                          height: 450,
-                          border: 'none',
-                          borderRadius: 0,
-                          background: '#181818',
-                          display: 'block',
-                          transform: 'scale(0.5)',
-                          transformOrigin: '0 0',
-                        }}
-                        loading="lazy"
-                        sandbox="allow-scripts allow-same-origin allow-popups"
-                        allowFullScreen={false}
-                        className="project-iframe"
-                      >
-                        Your browser does not support iframes or this site does not allow embedding.
-                      </iframe>
-                    </div>
-                  )}
-                  <div style={{ fontWeight: 700, fontSize: '1.25em', marginBottom: 8, color: '#5abb9a' }}>{project.title}</div>
-                  <div
-                    style={{ fontSize: '1em', marginBottom: 16 }}
-                    dangerouslySetInnerHTML={{ __html: formatDescriptionToHtml(project.description) }}
-                  />
-                  <div className="project-badges" style={{ marginTop: 8, display: 'flex', flexWrap: 'wrap' }}>
-                    {badgeLinks(project)}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-        <style>{`
+    <div style={{ width: '100%' }}>
+      <style>{`
         .project-masonry-card {
           position: relative;
           overflow: hidden;
           z-index: 1;
+          transition: border-color 0.3s, box-shadow 0.3s;
+          border: 2px solid rgba(90, 187, 154, 0.08);
+          border-radius: 4px !important;
         }
         .project-masonry-card::before {
           content: '';
           position: absolute;
-          inset: 0;
-          z-index: 0;
-          background: linear-gradient(120deg, rgba(90,187,154,0.08) 0%, rgba(90,187,154,0.18) 100%);
+          top: 50%;
+          left: 50%;
+          width: 200%;
+          height: 200%;
+          background: conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            transparent 55deg,
+            #ffff55 60deg,
+            #5abb9a 75deg,
+            transparent 80deg,
+            transparent 235deg,
+            #ffff55 240deg,
+            #5abb9a 255deg,
+            transparent 260deg
+          );
+          transform: translate(-50%, -50%) rotate(0deg);
           opacity: 0;
-          transition: opacity 0.4s, filter 0.4s;
-          filter: blur(0px);
+          z-index: 0;
           pointer-events: none;
         }
         .project-masonry-card:hover::before {
           opacity: 1;
-          filter: blur(6px) brightness(1.2) saturate(1.3);
-          animation: projectCardBgAnim 1.2s linear infinite alternate;
+          animation: border-beam 3s linear infinite;
         }
         .project-masonry-card:hover {
-          box-shadow: 0 0 32px 0 #5abb9a55, 0 12px 36px 0 rgba(90,187,154,0.18);
+          box-shadow:
+            0 0 20px 2px #5abb9a88,
+            0 0 8px 1px #ffff5566;
           border-color: #5abb9a;
         }
-        @keyframes projectCardBgAnim {
-          0% { background-position: 0% 0%; }
-          100% { background-position: 100% 100%; }
+        @keyframes border-beam {
+          from { transform: translate(-50%, -50%) rotate(0deg); }
+          to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         @media (max-width: 900px) {
           .project-iframe-container, .project-iframe {
@@ -322,6 +293,8 @@ const ProjectsMasonry = () => {
           }
         }
         @media (max-width: 700px) {
+          .mobile-projects-carousel { display: block; }
+          .project-masonry-card, .projects-grid, .desktop-only-header { display: none !important; }
           .project-masonry-card {
             padding: 14px 4vw !important;
             margin-bottom: 18px !important;
@@ -352,15 +325,85 @@ const ProjectsMasonry = () => {
             font-size: 0.97em !important;
           }
         }
+        @media (min-width: 701px) {
+          .mobile-projects-carousel { display: none !important; }
+        }
       `}</style>
-      </div>
-      <MobileProjectsCarousel />
-    </>
+      
+      {Object.entries(groupedProjects).map(([category, items]) => {
+        // Calculate columns for this specific category
+        const columnData = Array.from({ length: columns }, () => []);
+        items.forEach((item, i) => {
+          columnData[i % columns].push(item);
+        });
+
+        return (
+          <div key={category} style={{ marginBottom: '60px' }}>
+            <h2 className="terminal-header desktop-only-header" style={{ color: '#ffebcd', fontSize: '1.8em', marginBottom: '16px', borderBottom: '2px solid #5abb9a', paddingBottom: '8px' }}>
+              # {category}
+            </h2>
+            
+            {/* Desktop Masonry Grid */}
+            <div
+              className="projects-grid"
+              style={{
+                display: 'flex',
+                gap: '32px',
+                maxWidth: 1300,
+                margin: '0 auto',
+                padding: '20px 0',
+                alignItems: 'start',
+              }}
+            >
+              {columnData.map((col, colIndex) => (
+                <div key={colIndex} style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '32px', minWidth: 0 }}>
+                  {col.map((project) => (
+                    <div
+                      key={project.title}
+                      className="project-masonry-card"
+                      style={{
+                        display: 'inline-block',
+                        width: '100%',
+                        borderRadius: 4,
+                        padding: '2px', /* Border thickness for the beam */
+                        background: 'transparent',
+                        position: 'relative',
+                        transition: 'transform 0.18s',
+                        alignSelf: 'start',
+                      }}
+                      onMouseOver={e => {
+                        e.currentTarget.style.transform = 'scale(1.025)';
+                      }}
+                      onMouseOut={e => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                      }}
+                    >
+                      <div style={{
+                        background: '#000000',
+                        borderRadius: 2,
+                        padding: '24px 20px',
+                        height: '100%',
+                        width: '100%',
+                        position: 'relative',
+                        zIndex: 1,
+                        color: '#ffebcd',
+                        fontFamily: "'Terminus', monospace",
+                      }}>
+                        <ProjectCardContent project={project} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            {/* Mobile Carousel representation */}
+            <MobileProjectsCarousel category={category} items={items} />
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
 export default ProjectsMasonry;
-// update: implement dynamic project masonry layout for labs
-// update: fix: iframe loading and scaling issues on mobile devices
-// update: de-hardcode project title logic from UI components
-// update: Refactor the project gallery to use a generic schema-driven Masonry layout. This update eliminates brittle, project-specific hardcoding (e.g., checking project titles in React logic) and replaces it with a flexible rendering engine. Standardized projects.json to support the new Systems/DevOps labs and implemented mobile-responsive iframe scaling for project previews.

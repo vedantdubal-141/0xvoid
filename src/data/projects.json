@@ -6,6 +6,7 @@
     "github": "https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md",
     "previewImg": "/images/root.png",
     "showIframe": false,
+    "category": "Systems & DevOps",
     "extra": []
   },
   {
@@ -15,6 +16,7 @@
     "github": "https://github.com/vedantdubal-141/dockyard",
     "previewImg": "/images/dockforge.gif",
     "showIframe": false,
+    "category": "Systems & DevOps",
     "extra": []
   },
   {
@@ -24,6 +26,49 @@
     "github": null,
     "previewImg": "/images/rvc.gif",
     "showIframe": false,
+    "category": "Systems & DevOps",
+    "extra": []
+  },
+  {
+    "title": "Central Hostel React Clone",
+    "description": "A complete frontend clone of the Central Hostel website built natively with React. Showcases complex CSS layouts, interactive booking features, and responsive grid systems.",
+    "website": "https://vedantdubal-141.github.io/css--react/centralhostel/",
+    "github": "https://github.com/vedantdubal-141/css--react/tree/main/centralhostel-react",
+    "previewImg": "/images/react-clone/central.jpeg",
+    "showIframe": false,
+    "category": "Frontend Labs",
+    "extra": [
+      {
+        "href": "https://youtu.be/ghDd-2OfyRY",
+        "alt": "YouTube Demo",
+        "src": "https://cdn.simpleicons.org/youtube/ffebcd"
+      }
+    ]
+  },
+  {
+    "title": "Loopring React Clone",
+    "description": "An aesthetic frontend landing page mimicking Loopring's ecosystem. Features intricate CSS animations, responsive navbar, and Web3 product marketing style segments.",
+    "website": "https://vedantdubal-141.github.io/css--react/loopring/",
+    "github": "https://github.com/vedantdubal-141/css--react/tree/main/loopring-react",
+    "previewImg": "/images/react-clone/looprin.jpeg",
+    "showIframe": false,
+    "category": "Frontend Labs",
+    "extra": [
+      {
+        "href": "https://youtu.be/4crwGhzIgUM",
+        "alt": "YouTube Demo",
+        "src": "https://cdn.simpleicons.org/youtube/ffebcd"
+      }
+    ]
+  },
+  {
+    "title": "H&M UI Clone",
+    "description": "A robust eCommerce storefront replica for H&M using React. Focuses on product gallery manipulation, hover states, filtering UI interfaces, and heavy layout architectures.",
+    "website": "https://vedantdubal-141.github.io/css--react/hm/",
+    "github": "https://github.com/vedantdubal-141/css--react/tree/main/H%26M",
+    "previewImg": "/images/react-clone/h-m-.jpeg",
+    "showIframe": false,
+    "category": "Frontend Labs",
     "extra": []
   }
 ]

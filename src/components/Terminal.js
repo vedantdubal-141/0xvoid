@@ -9,6 +9,11 @@ import { logo } from '../assets/ascii';
 import HollywoodEffect from './HollywoodEffect/HollywoodEffect';
 import ProjectsMasonry from '../constants/projectsContent';
 import WhoamiCard from './WhoamiCard';
+import ContactForm from './ContactForm/ContactForm';
+import BSOD from './BSOD/BSOD';
+import MatrixRain from './MatrixRain/MatrixRain';
+import TerminalControls from './TerminalControls/TerminalControls';
+import useTypingSound from '../hooks/useTypingSound';
 
 // Lazy load heavy game components
 const Calculator = lazy(() => import('./Calculator/Calculator'));
@@ -63,6 +68,20 @@ const Terminal = () => {
   const [hackermode, setHackermode] = useState(false);
   const [isPasswordPrompt, setIsPasswordPrompt] = useState(false);
   const [insults, setInsults] = useState([]);
+  const [showBSOD, setShowBSOD] = useState(false);
+  const [matrixEnabled, setMatrixEnabled] = useState(() => {
+    const v = localStorage.getItem('matrixEnabled');
+    return v === null ? false : v === 'true';
+  });
+  const [scanlinesEnabled, setScanlinesEnabled] = useState(() => {
+    const v = localStorage.getItem('scanlinesEnabled');
+    return v === null ? true : v === 'true';
+  });
+  const [soundEnabled, setSoundEnabled] = useState(() => {
+    const v = localStorage.getItem('soundEnabled');
+    return v === null ? true : v === 'true';
+  });
+  const { playClick } = useTypingSound(soundEnabled);
   const inputRef = useRef(null);
   const terminalRef = useRef(null);
   const suppressAutoScrollRef = useRef(false);
@@ -80,16 +99,35 @@ const Terminal = () => {
       .catch(err => console.error('Failed to load insults', err));
   }, []);
 
+  // Sync scanlines to body class
+  useEffect(() => {
+    if (scanlinesEnabled) {
+      document.body.classList.add('crt-enabled');
+    } else {
+      document.body.classList.remove('crt-enabled');
+    }
+    localStorage.setItem('scanlinesEnabled', scanlinesEnabled);
+  }, [scanlinesEnabled]);
+
+  useEffect(() => {
+    localStorage.setItem('matrixEnabled', matrixEnabled);
+  }, [matrixEnabled]);
+
+  useEffect(() => {
+    localStorage.setItem('soundEnabled', soundEnabled);
+  }, [soundEnabled]);
+
   // Memoized available commands array
   const availableCommands = useMemo(() => [
     'help', 'github', 'gh', 'email', 'em', 'linkedin', 'li',
     'skills', 'skill', 'projects', 'p',
     'clear', 'c', 'who', 'w',
-    'neofetch', 'nf', 
+    'neofetch', 'nf',
     'time', 'date', 'background', 'theme', 'themes', 'bg',
     'color', 'calculator', 'hackermode', 'qr-generator',
     'password-generator', 'pwd', 'sudo',
-    'about', 'about me', 'fastfetch', 'ff', 'resume', 'cv'
+    'about', 'about me', 'fastfetch', 'ff', 'resume', 'cv', 'contact', 'mail',
+    'crash', 'bsod'
   ], []);
 
   // Memoized banners to avoid recreation on every render
@@ -159,6 +197,14 @@ const Terminal = () => {
       case 'p':
       case 'pr':
         addToOutput({ type: 'component', content: <ProjectsMasonry /> });
+        break;
+      case 'contact':
+      case 'mail':
+        addToOutput({ type: 'component', content: <ContactForm /> });
+        break;
+      case 'crash':
+      case 'bsod':
+        setShowBSOD(true);
         break;
       case 'resume':
       case 'cv':
@@ -553,6 +599,7 @@ const Terminal = () => {
   const handleInputChange = (e) => {
     const val = e.target.value;
     setInput(val);
+    playClick();
     if (!val) {
       setSuggestion('');
       return;
@@ -584,7 +631,26 @@ const Terminal = () => {
 
   return (
     <div id="terminal" className="terminal-container" ref={terminalRef}>
+      {showBSOD && (
+        <BSOD onComplete={() => {
+          setShowBSOD(false);
+          setOutput([]);
+          // re-trigger boot by clearing then re-mounting welcome
+          setTimeout(() => {
+            window.location.reload();
+          }, 400);
+        }} />
+      )}
+      {matrixEnabled && <MatrixRain />}
       {hackermode && <HollywoodEffect />}
+      <TerminalControls
+        matrixEnabled={matrixEnabled}
+        onToggleMatrix={() => setMatrixEnabled(v => !v)}
+        scanlinesEnabled={scanlinesEnabled}
+        onToggleScanlines={() => setScanlinesEnabled(v => !v)}
+        soundEnabled={soundEnabled}
+        onToggleSound={() => setSoundEnabled(v => !v)}
+      />
       {output.map((item, index) => (
         <div key={index}>
           {item.type === 'input' ? (
