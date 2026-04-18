@@ -4,21 +4,12 @@
   padding: 0;
 }
 
-/* CRT Scanlines overlay */
-body.crt-enabled::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 2px,
-    rgba(0, 0, 0, 0.13) 2px,
-    rgba(0, 0, 0, 0.13) 4px
-  );
+@keyframes hint-fade {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
+
+
 
 body {
   color: #ffebcd;
@@ -53,7 +44,7 @@ body {
   font-family: "Terminus", "Share Tech Mono", "Courier New", "Lucida Console", Courier, monospace;
 }
 
-/* Terminal container styles */
+/* Terminal container — CRT monitor style */
 .terminal-container {
   height: 100vh;
   width: 100%;
@@ -62,6 +53,38 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   word-break: break-word;
+
+  /* CRT curved screen illusion */
+  border-radius: 12px;
+  box-shadow:
+    /* thick outer bezel */
+    0 0 0 12px #111,
+    0 0 0 14px #1a1a1a,
+    0 0 0 18px #0d0d0d,
+    /* inner screen glow */
+    inset 0 0 60px rgba(0,0,0,0.6),
+    inset 0 0 8px rgba(90,187,154,0.06),
+    /* outer drop shadow */
+    0 8px 40px rgba(0,0,0,0.85);
+
+  /* subtle 3D curvature via perspective */
+  perspective: 900px;
+}
+
+/* Phosphor glow on all text inside terminal */
+.terminal-container,
+.terminal-container * {
+  text-shadow:
+    0 0 2px rgba(90,187,154,0.9),
+    0 0 6px rgba(90,187,154,0.35);
+}
+
+/* Don't apply text-shadow to images or decorative things */
+.terminal-container img,
+.terminal-container canvas,
+.terminal-container svg {
+  text-shadow: none;
+  filter: none;
 }
 
 .boot-logo {

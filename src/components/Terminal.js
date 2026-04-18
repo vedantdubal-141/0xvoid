@@ -14,6 +14,8 @@ import BSOD from './BSOD/BSOD';
 import MatrixRain from './MatrixRain/MatrixRain';
 import TerminalControls from './TerminalControls/TerminalControls';
 import useTypingSound from '../hooks/useTypingSound';
+import CRTEffect from './CRTEffect/CRTEffect';
+import FullscreenPrompt from './FullscreenPrompt/FullscreenPrompt';
 
 // Lazy load heavy game components
 const Calculator = lazy(() => import('./Calculator/Calculator'));
@@ -69,13 +71,15 @@ const Terminal = () => {
   const [isPasswordPrompt, setIsPasswordPrompt] = useState(false);
   const [insults, setInsults] = useState([]);
   const [showBSOD, setShowBSOD] = useState(false);
+  const [showPrompt, setShowPrompt] = useState(true);  // fullscreen prompt
+  const [hintVisible, setHintVisible] = useState(false);
   const [matrixEnabled, setMatrixEnabled] = useState(() => {
     const v = localStorage.getItem('matrixEnabled');
-    return v === null ? false : v === 'true';
+    return v === null ? true : v === 'true';   // ON by default
   });
   const [scanlinesEnabled, setScanlinesEnabled] = useState(() => {
     const v = localStorage.getItem('scanlinesEnabled');
-    return v === null ? true : v === 'true';
+    return v === null ? false : v === 'true';  // OFF by default
   });
   const [soundEnabled, setSoundEnabled] = useState(() => {
     const v = localStorage.getItem('soundEnabled');
@@ -99,13 +103,20 @@ const Terminal = () => {
       .catch(err => console.error('Failed to load insults', err));
   }, []);
 
-  // Sync scanlines to body class
+  // Hint flash: show once every ~10s to nudge users toward effects
   useEffect(() => {
-    if (scanlinesEnabled) {
-      document.body.classList.add('crt-enabled');
-    } else {
-      document.body.classList.remove('crt-enabled');
-    }
+    if (showPrompt) return; // don't flash while prompt is visible
+    const first = setTimeout(() => setHintVisible(true), 8000);
+    const interval = setInterval(() => {
+      setHintVisible(true);
+      setTimeout(() => setHintVisible(false), 3500);
+    }, 14000);
+    const firstHide = setTimeout(() => setHintVisible(false), 11500);
+    return () => { clearTimeout(first); clearTimeout(firstHide); clearInterval(interval); };
+  }, [showPrompt]);
+
+  // Sync body class no longer needed - scanlines rendered as React element
+  useEffect(() => {
     localStorage.setItem('scanlinesEnabled', scanlinesEnabled);
   }, [scanlinesEnabled]);
 
@@ -127,7 +138,7 @@ const Terminal = () => {
     'color', 'calculator', 'hackermode', 'qr-generator',
     'password-generator', 'pwd', 'sudo',
     'about', 'about me', 'fastfetch', 'ff', 'resume', 'cv', 'contact', 'mail',
-    'crash', 'bsod'
+    'crash', 'bsod', 'windows'
   ], []);
 
   // Memoized banners to avoid recreation on every render
@@ -204,6 +215,7 @@ const Terminal = () => {
         break;
       case 'crash':
       case 'bsod':
+      case 'windows':
         setShowBSOD(true);
         break;
       case 'resume':
@@ -631,6 +643,22 @@ const Terminal = () => {
 
   return (
     <div id="terminal" className="terminal-container" ref={terminalRef}>
+      {showPrompt && <FullscreenPrompt onEnter={() => setShowPrompt(false)} />}
+      {/* Floating hint badge */}
+      {hintVisible && !showPrompt && (
+        <div style={{
+          position: 'fixed', top: 14, left: '50%', transform: 'translateX(-50%)',
+          zIndex: 10000, background: 'rgba(0,0,0,0.85)',
+          border: '1px solid rgba(90,187,154,0.4)',
+          borderRadius: 4, padding: '6px 16px',
+          fontFamily: "'Terminus', monospace", fontSize: '0.75rem',
+          color: '#5abb9a', whiteSpace: 'nowrap',
+          animation: 'hint-fade 0.4s ease',
+          textShadow: '0 0 6px #5abb9a',
+        }}>
+          💡 try the buttons top-right → [matrix] [crt] [sound]
+        </div>
+      )}
       {showBSOD && (
         <BSOD onComplete={() => {
           setShowBSOD(false);
@@ -643,6 +671,8 @@ const Terminal = () => {
       )}
       {matrixEnabled && <MatrixRain />}
       {hackermode && <HollywoodEffect />}
+      {/* CRT Effect: canvas-based rolling scanbeam, noise, flicker, vignette */}
+      {scanlinesEnabled && <CRTEffect />}
       <TerminalControls
         matrixEnabled={matrixEnabled}
         onToggleMatrix={() => setMatrixEnabled(v => !v)}

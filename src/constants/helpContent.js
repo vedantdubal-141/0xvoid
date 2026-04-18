@@ -20,6 +20,9 @@ const helpContent = `
     <span class="command-link" data-command="linkedin" style="color: #5abb9a;">[linkedin]</span><br>
     <span class="command-link" data-command="github" style="color: #5abb9a;">[github]</span><br>
   </p>
+  <p style="margin: 14px 0 0 0; font-size: 0.82em; color: rgba(255, 235, 205, 0.35); font-style: italic;">
+    psst... some commands are hidden. try something <em>unexpected</em> 😉
+  </p>
 </div>`;
 
 export default helpContent;

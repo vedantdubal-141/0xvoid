@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 .gitgnore
-
+retro-computer-website/
 gemini/
 /gemini
 /home/vista/yrself/my-portfolio/src/assets/Portfolio-button.png
@@ -31,3 +31,4 @@ yarn-error.log*
 
 # personal notes / idea backlog
 IDEAS.md
+scripts/backdate-commits.sh
