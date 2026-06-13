@@ -103,15 +103,15 @@ const Terminal = () => {
       .catch(err => console.error('Failed to load insults', err));
   }, []);
 
-  // Hint flash: show once every ~10s to nudge users toward effects
+  // Hint flash: show once every ~22s to nudge users toward effects
   useEffect(() => {
     if (showPrompt) return; // don't flash while prompt is visible
-    const first = setTimeout(() => setHintVisible(true), 8000);
+    const first = setTimeout(() => setHintVisible(true), 12000); 
     const interval = setInterval(() => {
       setHintVisible(true);
-      setTimeout(() => setHintVisible(false), 3500);
-    }, 14000);
-    const firstHide = setTimeout(() => setHintVisible(false), 11500);
+      setTimeout(() => setHintVisible(false), 4000); // 4 seconds duration
+    }, 22000); // 22 seconds interval
+    const firstHide = setTimeout(() => setHintVisible(false), 16000);
     return () => { clearTimeout(first); clearTimeout(firstHide); clearInterval(interval); };
   }, [showPrompt]);
 
@@ -647,16 +647,17 @@ const Terminal = () => {
       {/* Floating hint badge */}
       {hintVisible && !showPrompt && (
         <div style={{
-          position: 'fixed', top: 14, left: '50%', transform: 'translateX(-50%)',
-          zIndex: 10000, background: 'rgba(0,0,0,0.85)',
-          border: '1px solid rgba(90,187,154,0.4)',
-          borderRadius: 4, padding: '6px 16px',
-          fontFamily: "'Terminus', monospace", fontSize: '0.75rem',
+          position: 'fixed', top: 58, right: 16,
+          zIndex: 10000, background: 'rgba(0,0,0,0.88)',
+          border: '1px solid rgba(90,187,154,0.5)',
+          borderRadius: 4, padding: '8px 18px',
+          fontFamily: "'Terminus', monospace", fontSize: '0.86rem',
           color: '#5abb9a', whiteSpace: 'nowrap',
           animation: 'hint-fade 0.4s ease',
-          textShadow: '0 0 6px #5abb9a',
+          textShadow: '0 0 8px #5abb9a',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.5)'
         }}>
-          💡 try the buttons top-right → [matrix] [crt] [sound]
+          💡 try the buttons → [matrix] [crt] [sound]
         </div>
       )}
       {showBSOD && (

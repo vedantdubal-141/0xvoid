@@ -2,7 +2,7 @@
 
 A machine-friendly overview of who I am, what I build, and where to find always-fresh information.
 
-Last-Updated: 2026-04-18
+Last-Updated: 2026-04-19
 Canonical: https://vedantdubal.com/llms.txt
 Full version: https://vedantdubal.com/llms-full.txt
 
