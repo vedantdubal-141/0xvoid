@@ -1,5 +1,37 @@
 [
   {
+    "title": "HabitatLedger",
+    "description": "A full-stack tenant advocacy platform for logging, categorizing, and tracking rental property issues with media evidence and lifecycle management. Features RESTful APIs, Multer uploads, kanban dashboard, and legal rights citations.",
+    "website": "https://habitat-ledger.vercel.app",
+    "github": "https://github.com/vedantdubal-141/habitatLedger",
+    "previewImg": "/images/fullstack/legal/dash-board.png",
+    "previewImgs": [
+      "/images/fullstack/legal/dash-board.png",
+      "/images/fullstack/legal/all-issue.png",
+      "/images/fullstack/legal/awarness.png",
+      "/images/fullstack/legal/legal.png"
+    ],
+    "showIframe": false,
+    "category": "Full Stack",
+    "extra": [
+      {
+        "href": "https://youtu.be/MomY0v1Cms4",
+        "alt": "YouTube Demo",
+        "src": "https://cdn.simpleicons.org/youtube/ffebcd"
+      },
+      {
+        "href": "https://documenter.getpostman.com/view/50839360/2sBXqKofTh",
+        "alt": "Postman Docs",
+        "src": "https://cdn.simpleicons.org/postman/ffebcd"
+      },
+      {
+        "href": "https://www.figma.com/design/mYVmO4pvqrD2Kz3WqUeJLL/Untitled?node-id=1-757&t=0WtgMXsgxGMLtN7b-0",
+        "alt": "Figma Design",
+        "src": "https://cdn.simpleicons.org/figma/ffebcd"
+      }
+    ]
+  },
+  {
     "title": "Android Rooting: Proot vs Chroot",
     "description": "A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.",
     "website": null,
@@ -15,16 +47,6 @@
     "website": null,
     "github": "https://github.com/vedantdubal-141/dockyard",
     "previewImg": "/images/dockforge.gif",
-    "showIframe": false,
-    "category": "Systems & DevOps",
-    "extra": []
-  },
-  {
-    "title": "AI Voice Cloning (RVC)",
-    "description": "[UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.",
-    "website": null,
-    "github": null,
-    "previewImg": "/images/rvc.gif",
     "showIframe": false,
     "category": "Systems & DevOps",
     "extra": []

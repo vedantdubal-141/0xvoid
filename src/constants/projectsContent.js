@@ -81,38 +81,84 @@ const badgeLinks = (project) => {
   ));
 };
 
+const RotatingProjectImage = ({ project, height = 225 }) => {
+  const images = Array.isArray(project.previewImgs) && project.previewImgs.length > 0
+    ? project.previewImgs
+    : project.previewImg
+    ? [project.previewImg]
+    : [];
+
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % images.length);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  if (images.length === 0) return null;
+
+  return (
+    <div
+      style={{
+        marginBottom: 16,
+        borderRadius: 12,
+        overflow: 'hidden',
+        border: '1.5px solid rgba(90,187,154,0.18)',
+        boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
+        background: '#181818',
+        height,
+        maxWidth: '100%',
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+      }}
+      className="project-iframe-container"
+    >
+      <img
+        src={`${process.env.PUBLIC_URL}${images[currentIdx]}`}
+        alt={`${project.title} preview ${currentIdx + 1}`}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          display: 'block',
+          transition: 'opacity 0.25s ease-in-out',
+        }}
+      />
+      {images.length > 1 && (
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 8,
+            right: 8,
+            background: 'rgba(0,0,0,0.75)',
+            color: '#5abb9a',
+            fontSize: '11px',
+            padding: '2px 8px',
+            borderRadius: 4,
+            fontFamily: "'Terminus', monospace",
+            border: '1px solid rgba(90,187,154,0.3)',
+            pointerEvents: 'none',
+          }}
+        >
+          {currentIdx + 1}/{images.length}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const ProjectCardContent = ({ project }) => (
   <div style={{ position: 'relative', zIndex: 1 }}>
-    {project.previewImg && (
-      <div
-        style={{
-          marginBottom: 16,
-          borderRadius: 12,
-          overflow: 'hidden',
-          border: '1.5px solid rgba(90,187,154,0.18)',
-          boxShadow: '0 2px 16px 0 rgba(90,187,154,0.10)',
-          background: '#181818',
-          height: 225,
-          maxWidth: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-        className="project-iframe-container"
-      >
-        <img
-          src={`${process.env.PUBLIC_URL}${project.previewImg}`}
-          alt={project.title + ' preview'}
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-          }}
-        />
-      </div>
+    {(project.previewImgs || project.previewImg) && (
+      <RotatingProjectImage project={project} height={225} />
     )}
-    {project.website && project.showIframe !== false && !project.previewImg && (
+    {project.website && project.showIframe !== false && !project.previewImg && !project.previewImgs && (
       <div
         style={{
           marginBottom: 16,
@@ -188,13 +234,9 @@ const MobileProjectsCarousel = ({ category, items }) => {
           alignItems: 'center',
         }}
       >
-        <div style={{ width: '100%', marginBottom: 16, borderRadius: 12, overflow: 'hidden', background: '#181818', height: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {project.previewImg && (
-            <img
-              src={`${process.env.PUBLIC_URL}${project.previewImg}`}
-              alt={project.title + ' preview'}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: 12 }}
-            />
+        <div style={{ width: '100%', marginBottom: 16 }}>
+          {(project.previewImgs || project.previewImg) && (
+            <RotatingProjectImage project={project} height={200} />
           )}
         </div>
         <div style={{ fontWeight: 700, fontSize: '1.18em', color: '#5abb9a', marginBottom: 10, textAlign: 'center' }}>{project.title}</div>
