@@ -20,8 +20,8 @@ const bootLines = [
   '  Starting VOID TERMINAL...',
 ];
 
-const CHAR_DELAY = 8;     // ms per character for typing effect (2x faster)
-const LINE_DELAY = 32;    // ms between lines (2x faster)
+const CHAR_DELAY = 5;     // ms per character for typing effect (3x faster)
+const LINE_DELAY = 18;    // ms between lines (3x faster)
 
 export default function BootScreen({ onComplete }) {
   const [lines, setLines] = useState([]);
@@ -58,7 +58,7 @@ export default function BootScreen({ onComplete }) {
           return updated;
         });
         setCurrentChar(c => c + 1);
-      }, line.startsWith('  ') ? 6 : CHAR_DELAY);
+      }, line.startsWith('  ') ? 3 : CHAR_DELAY);
       return () => clearTimeout(timer);
     }
 
@@ -81,8 +81,8 @@ export default function BootScreen({ onComplete }) {
     setLines(bootLines);
     setTimeout(() => {
       setFadeOut(true);
-      setTimeout(onComplete, 250);
-    }, 250);
+      setTimeout(onComplete, 150);
+    }, 150);
   }
 
   const isVoidLine = (line) => (line && line.trimStart().startsWith('█')) || line === '  Starting VOID TERMINAL...';
@@ -102,7 +102,7 @@ export default function BootScreen({ onComplete }) {
         fontFamily: "'Terminus', 'Share Tech Mono', 'Courier New', monospace",
         fontSize: '14px',
         opacity: fadeOut ? 0 : 1,
-        transition: 'opacity 0.25s ease',
+        transition: 'opacity 0.15s ease',
         overflowY: 'hidden',
         cursor: 'pointer',
       }}
