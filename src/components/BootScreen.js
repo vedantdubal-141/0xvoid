@@ -20,8 +20,8 @@ const bootLines = [
   '  Starting VOID TERMINAL...',
 ];
 
-const CHAR_DELAY = 18;    // ms per character for typing effect
-const LINE_DELAY = 70;    // ms between lines
+const CHAR_DELAY = 8;     // ms per character for typing effect (2x faster)
+const LINE_DELAY = 32;    // ms between lines (2x faster)
 
 export default function BootScreen({ onComplete }) {
   const [lines, setLines] = useState([]);
@@ -58,7 +58,7 @@ export default function BootScreen({ onComplete }) {
           return updated;
         });
         setCurrentChar(c => c + 1);
-      }, line.startsWith('  ') ? 12 : CHAR_DELAY);
+      }, line.startsWith('  ') ? 6 : CHAR_DELAY);
       return () => clearTimeout(timer);
     }
 
@@ -76,17 +76,20 @@ export default function BootScreen({ onComplete }) {
   }, [currentLineIdx, currentChar, done]);
 
   function finishBoot() {
+    if (done) return;
     setDone(true);
+    setLines(bootLines);
     setTimeout(() => {
       setFadeOut(true);
-      setTimeout(onComplete, 600);
-    }, 600);
+      setTimeout(onComplete, 250);
+    }, 250);
   }
 
   const isVoidLine = (line) => (line && line.trimStart().startsWith('█')) || line === '  Starting VOID TERMINAL...';
 
   return (
     <div
+      onClick={finishBoot}
       style={{
         position: 'fixed',
         inset: 0,
@@ -99,8 +102,9 @@ export default function BootScreen({ onComplete }) {
         fontFamily: "'Terminus', 'Share Tech Mono', 'Courier New', monospace",
         fontSize: '14px',
         opacity: fadeOut ? 0 : 1,
-        transition: 'opacity 0.6s ease',
+        transition: 'opacity 0.25s ease',
         overflowY: 'hidden',
+        cursor: 'pointer',
       }}
     >
       <pre style={{ margin: 0, lineHeight: '1.7', textAlign: 'left' }}>

@@ -288,7 +288,7 @@ const ProjectsMasonry = () => {
           overflow: hidden;
           z-index: 1;
           transition: border-color 0.3s, box-shadow 0.3s;
-          border: 2px solid rgba(90, 187, 154, 0.08);
+          border: 1px solid rgba(90, 187, 154, 0.08);
           border-radius: 4px !important;
         }
         .project-masonry-card::before {
@@ -301,14 +301,16 @@ const ProjectsMasonry = () => {
           background: conic-gradient(
             from 0deg,
             transparent 0deg,
-            transparent 55deg,
-            #ffff55 60deg,
-            #5abb9a 75deg,
-            transparent 80deg,
-            transparent 235deg,
-            #ffff55 240deg,
-            #5abb9a 255deg,
-            transparent 260deg
+            transparent 62deg,
+            #ff3b30 67deg,
+            #ff7733 72deg,
+            #5abb9a 77deg,
+            transparent 82deg,
+            transparent 242deg,
+            #ff3b30 247deg,
+            #ff7733 252deg,
+            #5abb9a 257deg,
+            transparent 262deg
           );
           transform: translate(-50%, -50%) rotate(0deg);
           opacity: 0;
@@ -321,9 +323,9 @@ const ProjectsMasonry = () => {
         }
         .project-masonry-card:hover {
           box-shadow:
-            0 0 20px 2px #5abb9a88,
-            0 0 8px 1px #ffff5566;
-          border-color: #5abb9a;
+            0 0 8px 1px rgba(90, 187, 154, 0.25),
+            0 0 4px 1px rgba(255, 107, 53, 0.3);
+          border-color: rgba(90, 187, 154, 0.45);
         }
         @keyframes border-beam {
           from { transform: translate(-50%, -50%) rotate(0deg); }
@@ -407,7 +409,7 @@ const ProjectsMasonry = () => {
                         display: 'inline-block',
                         width: '100%',
                         borderRadius: 4,
-                        padding: '2px', /* Border thickness for the beam */
+                        padding: '1px', /* Thinner border thickness for the beam */
                         background: 'transparent',
                         position: 'relative',
                         transition: 'transform 0.18s',

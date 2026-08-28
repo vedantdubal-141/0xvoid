@@ -479,12 +479,15 @@ const Terminal = () => {
       </div>
       </div>`;
 
-    // Only set the welcome/help content if nothing has been printed yet.
+    // Only set the initial content if nothing has been printed yet.
     // This avoids overwriting deep-linked commands executed earlier in the mount cycle.
     setOutput(prev => (prev && prev.length)
       ? prev
       : [
         { type: 'output', content: welcomeMessage },
+        { type: 'input', content: 'who' },
+        { type: 'component', content: <WhoamiCard /> },
+        { type: 'input', content: 'help' },
         { type: 'output', content: helpContent }
       ]
     );
