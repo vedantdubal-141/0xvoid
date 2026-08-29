@@ -88,6 +88,7 @@ const Terminal = () => {
   const { playClick } = useTypingSound(soundEnabled);
   const inputRef = useRef(null);
   const terminalRef = useRef(null);
+  const isInitialMountRef = useRef(true);
   const suppressAutoScrollRef = useRef(false);
   const pendingScrollOffsetRef = useRef(0);
   const lastHandledHashRef = useRef('');
@@ -346,6 +347,7 @@ const Terminal = () => {
 
   // Memoized command execution function
   const executeCommand = useCallback((command) => {
+    isInitialMountRef.current = false;
     setCommandHistory(prev => [...prev, command]);
     setHistoryIndex(-1);
     setInput('');
@@ -497,6 +499,11 @@ const Terminal = () => {
       const el = terminalRef.current;
       if (!el) return;
 
+      if (isInitialMountRef.current) {
+        el.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+
       if (pendingScrollOffsetRef.current) {
         const newTop = Math.min(el.scrollHeight, el.scrollTop + pendingScrollOffsetRef.current);
         el.scrollTo({ top: newTop, behavior: 'smooth' });
@@ -646,7 +653,21 @@ const Terminal = () => {
 
   return (
     <div id="terminal" className="terminal-container" ref={terminalRef}>
-      {showPrompt && <FullscreenPrompt onEnter={() => setShowPrompt(false)} />}
+      {showPrompt && (
+        <FullscreenPrompt
+          onEnter={() => {
+            setShowPrompt(false);
+            if (terminalRef.current) {
+              terminalRef.current.scrollTo({ top: 0, behavior: 'instant' });
+            }
+            setTimeout(() => {
+              if (terminalRef.current) {
+                terminalRef.current.scrollTo({ top: 0, behavior: 'instant' });
+              }
+            }, 50);
+          }}
+        />
+      )}
       {/* Floating hint badge */}
       {hintVisible && !showPrompt && (
         <div style={{

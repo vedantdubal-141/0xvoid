@@ -4,6 +4,17 @@ import './FullscreenPrompt.css';
 const FullscreenPrompt = ({ onEnter }) => {
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    if (visible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [visible]);
+
   const handleEnter = () => {
     // Request fullscreen on user gesture (required by browsers)
     const el = document.documentElement;
@@ -18,7 +29,12 @@ const FullscreenPrompt = ({ onEnter }) => {
   if (!visible) return null;
 
   return (
-    <div className="fsp-overlay" onClick={handleEnter}>
+    <div
+      className="fsp-overlay"
+      onClick={handleEnter}
+      onWheel={(e) => { e.preventDefault(); e.stopPropagation(); }}
+      onTouchMove={(e) => { e.preventDefault(); e.stopPropagation(); }}
+    >
       <div className="fsp-inner">
         <div className="fsp-logo">VOID</div>
         <div className="fsp-subtitle">TERMINAL PORTFOLIO</div>
