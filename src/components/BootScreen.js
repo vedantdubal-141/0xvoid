@@ -20,8 +20,10 @@ const bootLines = [
   '  Starting VOID TERMINAL...',
 ];
 
-const CHAR_DELAY = 5;     // ms per character for typing effect (3x faster)
-const LINE_DELAY = 18;    // ms between lines (3x faster)
+const CHAR_CHUNK = 6;    // characters per frame for rapid streaming
+const CHAR_DELAY = 2;    // ms per chunk
+const LINE_DELAY = 8;    // ms between kernel lines
+const LOGO_LINE_DELAY = 4; // ms between ASCII art lines
 
 export default function BootScreen({ onComplete }) {
   const [lines, setLines] = useState([]);
@@ -35,7 +37,7 @@ export default function BootScreen({ onComplete }) {
 
     const line = bootLines[currentLineIdx];
 
-    // Empty line — just add it immediately
+    // Empty line — add immediately
     if (line === '') {
       const timer = setTimeout(() => {
         setLines(prev => [...prev, '']);
@@ -49,20 +51,40 @@ export default function BootScreen({ onComplete }) {
       return () => clearTimeout(timer);
     }
 
-    // Still typing current line
-    if (currentChar < line.length) {
+    // ASCII art line — render whole line at once for high-speed boot
+    const isAsciiLine = line.includes('█') || line.startsWith('  ');
+    if (isAsciiLine && currentChar === 0) {
       const timer = setTimeout(() => {
         setLines(prev => {
           const updated = [...prev];
-          updated[currentLineIdx] = line.slice(0, currentChar + 1);
+          updated[currentLineIdx] = line;
           return updated;
         });
-        setCurrentChar(c => c + 1);
-      }, line.startsWith('  ') ? 3 : CHAR_DELAY);
+        if (currentLineIdx + 1 >= bootLines.length) {
+          finishBoot();
+        } else {
+          setCurrentLineIdx(i => i + 1);
+          setCurrentChar(0);
+        }
+      }, LOGO_LINE_DELAY);
       return () => clearTimeout(timer);
     }
 
-    // Line done — move to next
+    // Streaming kernel lines in multi-character chunks
+    if (currentChar < line.length) {
+      const nextChar = Math.min(currentChar + CHAR_CHUNK, line.length);
+      const timer = setTimeout(() => {
+        setLines(prev => {
+          const updated = [...prev];
+          updated[currentLineIdx] = line.slice(0, nextChar);
+          return updated;
+        });
+        setCurrentChar(nextChar);
+      }, CHAR_DELAY);
+      return () => clearTimeout(timer);
+    }
+
+    // Line done — move to next line
     const timer = setTimeout(() => {
       if (currentLineIdx + 1 >= bootLines.length) {
         finishBoot();
@@ -81,8 +103,8 @@ export default function BootScreen({ onComplete }) {
     setLines(bootLines);
     setTimeout(() => {
       setFadeOut(true);
-      setTimeout(onComplete, 150);
-    }, 150);
+      setTimeout(onComplete, 100);
+    }, 100);
   }
 
   const isVoidLine = (line) => (line && line.trimStart().startsWith('█')) || line === '  Starting VOID TERMINAL...';
