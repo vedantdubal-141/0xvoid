@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 import './HollywoodEffect.css';
 
 const HollywoodEffect = React.memo(() => {
@@ -51,7 +52,10 @@ const HollywoodEffect = React.memo(() => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  return <canvas ref={canvasRef} className="hollywood-effect"></canvas>;
+  return ReactDOM.createPortal(
+    <canvas ref={canvasRef} className="hollywood-effect"></canvas>,
+    document.body
+  );
 });
 
 export default HollywoodEffect;

@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
 const COLS_CHAR = 'ｦｧｨｩｪｫｬｭｮｯｰｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789ABCDEF';
 
@@ -59,7 +60,7 @@ const MatrixRain = () => {
     };
   }, []);
 
-  return (
+  return ReactDOM.createPortal(
     <canvas
       ref={canvasRef}
       style={{
@@ -72,7 +73,8 @@ const MatrixRain = () => {
         zIndex: 0,
         opacity: 0.45,
       }}
-    />
+    />,
+    document.body
   );
 };
 

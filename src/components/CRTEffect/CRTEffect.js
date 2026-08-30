@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import ReactDOM from 'react-dom';
 
 const CRTEffect = () => {
   const canvasRef = useRef(null);
@@ -161,7 +162,7 @@ const CRTEffect = () => {
     };
   }, []);
 
-  return (
+  return ReactDOM.createPortal(
     <canvas
       ref={canvasRef}
       style={{
@@ -173,7 +174,8 @@ const CRTEffect = () => {
         pointerEvents: 'none',
         zIndex: 9999,
       }}
-    />
+    />,
+    document.body
   );
 };
 
