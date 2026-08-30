@@ -105,6 +105,13 @@
       ]
     },
     {
+      "name": "HabitatLedger",
+      "status": "Active",
+      "description": "A full-stack tenant advocacy platform for logging, categorizing, and tracking rental property issues with media evidence and lifecycle management. Features RESTful APIs, Multer uploads, kanban dashboard, and legal rights citations.",
+      "url": "https://habitat-ledger.vercel.app",
+      "github": "https://github.com/vedantdubal-141/habitatLedger"
+    },
+    {
       "name": "Central Hostel React Clone",
       "status": "Active",
       "description": "A complete frontend clone of the Central Hostel website built natively with React. Showcases complex CSS layouts, interactive booking features, and responsive grid systems.",
@@ -153,5 +160,5 @@
       "Mobile responsive design"
     ]
   },
-  "last_updated": "2026-04-19"
+  "last_updated": "2026-08-30"
 }

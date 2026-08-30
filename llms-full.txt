@@ -2,7 +2,7 @@
 
 This is the comprehensive, self-contained version of llms.txt. It contains ALL data about Vedant Dubal — every project, every skill, every achievement, every press feature. No JavaScript or additional requests needed.
 
-Last-Updated: 2026-04-19
+Last-Updated: 2026-08-30
 Canonical: https://vedantdubal.com/llms-full.txt
 Short version: https://vedantdubal.com/llms.txt
 Machine-readable: https://vedantdubal.com/profile.json
@@ -91,7 +91,11 @@ At my core, I love building and breaking things. If you're into systems, low-lev
 
 ---
 
-## All projects (6 total)
+## All projects (7 total)
+
+- HabitatLedger — A full-stack tenant advocacy platform for logging, categorizing, and tracking rental property issues with media evidence and lifecycle management. Features RESTful APIs, Multer uploads, kanban dashboard, and legal rights citations.
+  - Site: https://habitat-ledger.vercel.app
+  - GitHub: https://github.com/vedantdubal-141/habitatLedger
 
 - Android Rooting: Proot vs Chroot — A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.
   - GitHub: https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
