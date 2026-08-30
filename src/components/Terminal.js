@@ -652,7 +652,12 @@ const Terminal = () => {
   }, [backgrounds, changeBackgroundColor, addToOutput]);
 
   return (
-    <div id="terminal" className="terminal-container" ref={terminalRef}>
+    <div
+      id="terminal"
+      className="terminal-container"
+      ref={terminalRef}
+      style={{ overflowY: showPrompt ? 'hidden' : 'auto' }}
+    >
       {showPrompt && (
         <FullscreenPrompt
           onEnter={() => {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import './FullscreenPrompt.css';
 
 const FullscreenPrompt = ({ onEnter }) => {
@@ -28,7 +29,7 @@ const FullscreenPrompt = ({ onEnter }) => {
 
   if (!visible) return null;
 
-  return (
+  return ReactDOM.createPortal(
     <div
       className="fsp-overlay"
       onClick={handleEnter}
@@ -42,7 +43,8 @@ const FullscreenPrompt = ({ onEnter }) => {
         <div className="fsp-cta">[ CLICK ANYWHERE TO ENTER ]</div>
         <div className="fsp-hint">press F11 for manual fullscreen</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

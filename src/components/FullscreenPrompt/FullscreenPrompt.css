@@ -1,13 +1,20 @@
 .fsp-overlay {
   position: fixed;
-  inset: 0;
-  z-index: 99998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999;
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   animation: fsp-fade-in 0.6s ease;
+  overflow: hidden;
+  touch-action: none;
 }
 
 @keyframes fsp-fade-in {
