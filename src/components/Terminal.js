@@ -164,6 +164,7 @@ const Terminal = () => {
 
   // Memoized command handler (defined early to avoid dependency issues)
   const handleCommand = useCallback((command) => {
+    isInitialMountRef.current = false;
     if (isPasswordPrompt) {
       // Pick a random insult
       const randomInsult = insults.length > 0 
@@ -348,6 +349,7 @@ const Terminal = () => {
   // Memoized command execution function
   const executeCommand = useCallback((command) => {
     isInitialMountRef.current = false;
+    suppressAutoScrollRef.current = false;
     setCommandHistory(prev => [...prev, command]);
     setHistoryIndex(-1);
     setInput('');
@@ -495,6 +497,11 @@ const Terminal = () => {
     );
     inputRef.current?.focus();
 
+    // Release initial mount lock after initial render settled
+    const initTimer = setTimeout(() => {
+      isInitialMountRef.current = false;
+    }, 300);
+
     const observer = new MutationObserver(() => {
       const el = terminalRef.current;
       if (!el) return;
@@ -523,7 +530,28 @@ const Terminal = () => {
       observer.observe(terminalRef.current, { childList: true, subtree: true });
     }
 
-    return () => observer.disconnect();
+    // Track user scroll: suppress auto-scroll when scrolled up, re-enable near bottom
+    const handleScroll = () => {
+      const el = terminalRef.current;
+      if (!el || isInitialMountRef.current) return;
+      const distFromBottom = el.scrollHeight - el.scrollTop - el.clientHeight;
+      if (distFromBottom > 80) {
+        suppressAutoScrollRef.current = true;
+      } else {
+        suppressAutoScrollRef.current = false;
+      }
+    };
+
+    const termEl = terminalRef.current;
+    if (termEl) {
+      termEl.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(initTimer);
+      if (termEl) termEl.removeEventListener('scroll', handleScroll);
+    };
   }, [isMobile, banners.small, banners.large]);
 
   useEffect(() => {
@@ -559,6 +587,8 @@ const Terminal = () => {
     }
 
     if (e.key === 'Enter') {
+      isInitialMountRef.current = false;
+      suppressAutoScrollRef.current = false;
       const command = e.target.value.trim();
       if (isPasswordPrompt) {
         // Do not add password to history or echo as input
@@ -666,10 +696,8 @@ const Terminal = () => {
               terminalRef.current.scrollTo({ top: 0, behavior: 'instant' });
             }
             setTimeout(() => {
-              if (terminalRef.current) {
-                terminalRef.current.scrollTo({ top: 0, behavior: 'instant' });
-              }
-            }, 50);
+              isInitialMountRef.current = false;
+            }, 300);
           }}
         />
       )}
