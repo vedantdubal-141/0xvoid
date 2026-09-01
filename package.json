@@ -24,10 +24,10 @@
     "react-scripts": "^5.0.1"
   },
   "scripts": {
-    "dev": "npm start",
-    "predeploy": "npm run build",
+    "dev": "react-scripts start",
+    "predeploy": "node scripts/update-metadata.js && react-scripts build && node scripts/update-metadata.js",
     "deploy": "gh-pages -d build",
-    "build": "npm run update-metadata && react-scripts build && npm run update-metadata",
+    "build": "node scripts/update-metadata.js && react-scripts build && node scripts/update-metadata.js",
     "update-metadata": "node scripts/update-metadata.js",
     "start": "react-scripts start",
     "test": "react-scripts test",
