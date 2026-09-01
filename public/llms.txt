@@ -2,7 +2,7 @@
 
 A machine-friendly overview of who I am, what I build, and where to find always-fresh information.
 
-Last-Updated: 2026-04-19
+Last-Updated: 2026-08-30
 Canonical: https://vedantdubal.com/llms.txt
 Full version: https://vedantdubal.com/llms-full.txt
 
@@ -94,9 +94,9 @@ Featured in the following publications:
 
 ---
 
-## Projects (top 6)
+## Projects (top 7)
 
-For the complete list with all 6 projects, see https://vedantdubal.com/llms-full.txt
+For the complete list with all 7 projects, see https://vedantdubal.com/llms-full.txt
 
 - Android Rooting: Proot vs Chroot — A comprehensive guide on rooting Android devices and the architectural differences between Proot and Chroot. Explores kernel-level solutions like Magisk and KernelSU for high-performance Linux userspaces in Termux.
   - GitHub: https://github.com/vedantdubal-141/DevOps-Lab/blob/main/linux-internals/arm64(termux-android)/ProotVSChroot%2BRooti.md
@@ -105,6 +105,10 @@ For the complete list with all 6 projects, see https://vedantdubal.com/llms-full
   - GitHub: https://github.com/vedantdubal-141/dockyard
 
 - AI Voice Cloning (RVC) — [UPCOMING] A deep dive into training AI voice models. Covers environment setup with CUDA, PyTorch, and FFmpeg for high-fidelity real-time voice cloning and dataset preparation.
+
+- HabitatLedger — A full-stack tenant advocacy platform for logging, categorizing, and tracking rental property issues with media evidence and lifecycle management. Features RESTful APIs, Multer uploads, kanban dashboard, and legal rights citations.
+  - Site: https://habitat-ledger.vercel.app
+  - GitHub: https://github.com/vedantdubal-141/habitatLedger
 
 - Central Hostel React Clone — A complete frontend clone of the Central Hostel website built natively with React. Showcases complex CSS layouts, interactive booking features, and responsive grid systems.
   - Site: https://vedantdubal-141.github.io/css--react/centralhostel/
